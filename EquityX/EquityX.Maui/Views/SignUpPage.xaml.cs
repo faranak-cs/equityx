@@ -7,4 +7,9 @@ public partial class SignUpPage : ContentPage
 		InitializeComponent();
 
 	}
+
+    private void btnSignUp_Clicked(object sender, EventArgs e)
+    {
+		Shell.Current.GoToAsync(nameof(HomePage));
+    }
 }

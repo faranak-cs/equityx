@@ -19,9 +19,13 @@
             VerticalOptions="Center"/>
 
         <Button
+            x:Name="btnSignUp"
+            Clicked="btnSignUp_Clicked"
             Grid.Column="0"
             Grid.Row="1"
             Text="Sign Up"
+            FontSize="Medium"
+            WidthRequest="200"
             HorizontalOptions="Center"
             VerticalOptions="Center"/>
 

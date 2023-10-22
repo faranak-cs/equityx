@@ -10,7 +10,9 @@ namespace EquityX.Maui
             InitializeComponent();
 
             Routing.RegisterRoute(nameof(SignUpPage), typeof(SignUpPage));
-            
+            Routing.RegisterRoute(nameof(HomePage), typeof(HomePage));
+
+
         }
     }
 }
