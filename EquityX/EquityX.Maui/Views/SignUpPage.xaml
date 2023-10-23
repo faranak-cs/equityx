@@ -3,28 +3,28 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="EquityX.Maui.Views.SignUpPage"
              Title="EquityX"
-             BackgroundImageSource="logo.png">
+             BackgroundColor="Black"
+             >
 
     <Grid RowDefinitions="*,*"
-          ColumnDefinitions="*"
-          RowSpacing="50">
+          ColumnDefinitions="*">
 
-        <Label
+        <Image
             Grid.Row="0"
             Grid.Column="0"
-            Text="Welcome to EquityX application"
-            TextColor="White"
-            FontSize="Header"
-            HorizontalOptions="Center"
-            VerticalOptions="Center"/>
+            Source="logo.png"
+            HeightRequest="300"
+            HorizontalOptions="Center" />
 
+        
         <Button
             x:Name="btnSignUp"
             Clicked="btnSignUp_Clicked"
             Grid.Column="0"
             Grid.Row="1"
+            TextColor="Black"
+            BackgroundColor="#ffc600"
             Text="Sign Up"
-            FontSize="Medium"
             WidthRequest="200"
             HorizontalOptions="Center"
             VerticalOptions="Center"/>
