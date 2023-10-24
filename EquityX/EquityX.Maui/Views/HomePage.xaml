@@ -3,19 +3,17 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="EquityX.Maui.Views.HomePage"
              Title="Home"
-             BackgroundColor="White"  >
-           
+             BackgroundColor="White">
 
-    <Grid RowDefinitions="0.25*,1.5*,3*,0.5*"
+
+    <Grid RowDefinitions="0.25*,1.5*,3*"
           ColumnDefinitions="*,*"
           RowSpacing="10"
           ColumnSpacing="10"
           Margin="50,50">
 
         <Label Text="Hello, Faran Khan"
-               TextColor="Black"
-               
-               HorizontalOptions="Start"/>
+               TextColor="Black"/>
 
         <Frame Grid.ColumnSpan="2"
                Grid.Row="1"
@@ -33,7 +31,7 @@
                        Text="Available Funds: $500"
                        TextColor="Black"
                        />
-                
+
                 <Button Grid.Column="0"
                         Grid.Row="1"
                         x:Name="btnAddFunds"
@@ -60,10 +58,10 @@
 
         </Frame>
 
-        <!--Assests-->
+        <!--Options-->
         <Grid Grid.Row="2"
               Grid.ColumnSpan="2"
-              RowDefinitions="*,*"
+              RowDefinitions="*,*,*"
               ColumnDefinitions="*,*"
               RowSpacing="10"
               ColumnSpacing="10">
@@ -72,76 +70,68 @@
                    Grid.Column="0"
                    BorderColor="White"
                    BackgroundColor="#f8f9fa"
-                   CornerRadius="20">
-                <Label Text="Assets"
-                       TextColor="Black"/>
+                   CornerRadius="20"
+                   Padding="10">
+
+                <VerticalStackLayout>
+                    <Label Text="Portfolio" HorizontalOptions="Center"/>
+                    <Image Source="portfolio.png" HorizontalOptions="Center"/>
+                </VerticalStackLayout>
 
 
 
             </Frame>
+
             <Frame Grid.Row="0"
                    Grid.Column="1"
                    BorderColor="White"
                    BackgroundColor="#f8f9fa"
-                   CornerRadius="20">
-                <Label Text="Portfolio"
-                       TextColor="Black"/>
-
+                   CornerRadius="20"
+                   Padding="10">
+                <VerticalStackLayout>
+                    <Label Text="Summary" HorizontalOptions="Center"/>
+                    <Image Source="summary.png" HorizontalOptions="Center"/>
+                </VerticalStackLayout>
             </Frame>
+
             <Frame Grid.Column="0"
                    Grid.Row="1"
                    BorderColor="White"
                    BackgroundColor="#f8f9fa"
-                   CornerRadius="20">
-                <Label Text="History"
-                    TextColor="Black"/>
-
+                   CornerRadius="20"
+                   Padding="10">
+                <VerticalStackLayout>
+                    <Label Text="Stocks" HorizontalOptions="Center"/>
+                    <Image Source="stocks.png" HorizontalOptions="Center"/>
+                </VerticalStackLayout>
             </Frame>
+
             <Frame Grid.Column="1"
                    Grid.Row="1"
                    BorderColor="White"
                    BackgroundColor="#f8f9fa"
-                   CornerRadius="20">
-                <Label Text="Market"
-                    TextColor="Black"/>
+                   CornerRadius="20"
+                   Padding="10">
+                <VerticalStackLayout>
+                    <Label Text="Crypto" HorizontalOptions="Center"/>
+                    <Image Source="crypto.png" HorizontalOptions="Center"/>
+                </VerticalStackLayout>
+            </Frame>
 
+            <Frame Grid.Column="0"
+                   Grid.Row="2"
+                   BorderColor="White"
+                   BackgroundColor="#f8f9fa"
+                   CornerRadius="20"
+                   Padding="10">
+                <VerticalStackLayout>
+                    <Label Text="Market" HorizontalOptions="Center"/>
+                    <Image Source="market.png" HorizontalOptions="Center"/>
+                </VerticalStackLayout>
             </Frame>
 
         </Grid>
 
-
-        <Button Grid.Row="3"
-                Grid.Column="0"
-                Text="Stocks"
-                TextColor="Black"
-                BackgroundColor="#ffc600"
-                />
-                
-
-        <Button Grid.Row="3"
-                Grid.Column="1"
-                Text="Crypto"
-                TextColor="Black"
-                BackgroundColor="#ffc600"
-                />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     </Grid>
-    
-    
-    
-    
+
 </ContentPage>
