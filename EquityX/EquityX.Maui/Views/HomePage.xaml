@@ -3,8 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="EquityX.Maui.Views.HomePage"
              Title="Home"
-             BackgroundColor="White"
-             >
+             BackgroundColor="White"  >
+           
 
     <Grid RowDefinitions="0.25*,1.5*,3*,0.5*"
           ColumnDefinitions="*,*"
@@ -14,7 +14,7 @@
 
         <Label Text="Hello, Faran Khan"
                TextColor="Black"
-               FontSize="Default"
+               
                HorizontalOptions="Start"/>
 
         <Frame Grid.ColumnSpan="2"
@@ -32,7 +32,7 @@
                        Grid.Row="0"
                        Text="Available Funds: $500"
                        TextColor="Black"
-                       FontSize="Micro"/>
+                       />
                 
                 <Button Grid.Column="0"
                         Grid.Row="1"
