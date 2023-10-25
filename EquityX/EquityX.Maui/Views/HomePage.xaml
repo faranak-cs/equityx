@@ -71,15 +71,20 @@
                    BorderColor="White"
                    BackgroundColor="#f8f9fa"
                    CornerRadius="20"
-                   Padding="10">
+                   Padding="10"
+                   >
 
                 <VerticalStackLayout>
                     <Label Text="Portfolio" HorizontalOptions="Center"/>
-                    <Image Source="portfolio.png" HorizontalOptions="Center"/>
+
+                    <Image Source="portfolio.png" HorizontalOptions="Center">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Tapped="imgPortfolio_Tapped" NumberOfTapsRequired="1"/>
+                        </Image.GestureRecognizers>
+                        
+                    </Image>
                 </VerticalStackLayout>
-
-
-
             </Frame>
 
             <Frame Grid.Row="0"
@@ -90,7 +95,14 @@
                    Padding="10">
                 <VerticalStackLayout>
                     <Label Text="Summary" HorizontalOptions="Center"/>
-                    <Image Source="summary.png" HorizontalOptions="Center"/>
+                    <Image Source="summary.png" HorizontalOptions="Center">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer 
+                                Tapped="imgSummary_Tapped"
+                                NumberOfTapsRequired="1"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                  
                 </VerticalStackLayout>
             </Frame>
 
@@ -102,7 +114,12 @@
                    Padding="10">
                 <VerticalStackLayout>
                     <Label Text="Stocks" HorizontalOptions="Center"/>
-                    <Image Source="stocks.png" HorizontalOptions="Center"/>
+                    <Image Source="stocks.png" HorizontalOptions="Center">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Tapped="imgStocks_Tapped" NumberOfTapsRequired="1"/>
+                        </Image.GestureRecognizers>
+                    </Image>
                 </VerticalStackLayout>
             </Frame>
 
@@ -114,7 +131,12 @@
                    Padding="10">
                 <VerticalStackLayout>
                     <Label Text="Crypto" HorizontalOptions="Center"/>
-                    <Image Source="crypto.png" HorizontalOptions="Center"/>
+                    <Image Source="crypto.png" HorizontalOptions="Center">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Tapped="imgCrypto_Tapped" NumberOfTapsRequired="1"/>
+                        </Image.GestureRecognizers>
+                    </Image>
                 </VerticalStackLayout>
             </Frame>
 
@@ -126,7 +148,12 @@
                    Padding="10">
                 <VerticalStackLayout>
                     <Label Text="Market" HorizontalOptions="Center"/>
-                    <Image Source="market.png" HorizontalOptions="Center"/>
+                    <Image Source="market.png" HorizontalOptions="Center">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Tapped="imgMarket_Tapped" NumberOfTapsRequired="1"/>
+                        </Image.GestureRecognizers>
+                    </Image>
                 </VerticalStackLayout>
             </Frame>
 

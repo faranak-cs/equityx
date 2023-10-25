@@ -6,4 +6,9 @@ public partial class SummaryPage : ContentPage
 	{
 		InitializeComponent();
 	}
+
+    private void Button_Clicked(object sender, EventArgs e)
+    {
+       Shell.Current.GoToAsync(nameof(HomePage));
+    }
 }
