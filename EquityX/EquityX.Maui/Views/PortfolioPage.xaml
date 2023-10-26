@@ -2,14 +2,45 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="EquityX.Maui.Views.PortfolioPage"
+             
              Title="Portfolio">
 
-    
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-        <Button Text="goback" Clicked="Button_Clicked"/>
-    </VerticalStackLayout>
+    <Grid RowDefinitions="50,*,50"
+          ColumnDefinitions="*"
+          Padding="10"
+          RowSpacing="10">
+
+        <Border BackgroundColor="#ffc600"
+                StrokeThickness="0"
+                StrokeShape="RoundRectangle 10">
+            <VerticalStackLayout Grid.Row="0">
+                <Label x:Name="lblAsset"
+                       FontSize="Subtitle"
+                       HorizontalOptions="Center"/>
+                <Label Text="Assets"
+                   FontSize="Caption"
+                   HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+        </Border>
+
+        <ListView Grid.Row="1"
+                  BackgroundColor="#f8f9fa"
+                  x:Name="listAssets">
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Path=Name}"
+                              Detail="{Binding Path=Investment}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Button x:Name="btnHome"
+                Grid.Row="2"
+                Text="Home"
+                Clicked="btnHome_Clicked"
+                BackgroundColor="#ffc600"
+                TextColor="Black"/>
+
+    </Grid>
 </ContentPage>
