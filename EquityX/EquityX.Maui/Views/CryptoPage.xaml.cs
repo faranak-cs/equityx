@@ -30,6 +30,7 @@ public partial class CryptoPage : ContentPage
 
             //logic
            await Shell.Current.GoToAsync($"{nameof(PortfolioPage)}?cryptoid={((Crypto)listCryptos.SelectedItem).CryptoId}");
+  
 
             /*DisplayAlert("Status", "OK", "X");*/
         }

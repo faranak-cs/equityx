@@ -46,7 +46,7 @@ namespace EquityX.Maui.ViewModels
         //will be used to display history of individual asset
         public static Assets GetAssetById(int assetId)
         {
-            var asset = _assets.FirstOrDefault(x => x.AssetId == assetId);
+            var asset = _unique_assets.FirstOrDefault(x => x.AssetId == assetId);
 
             if(asset != null)
             {
@@ -67,8 +67,8 @@ namespace EquityX.Maui.ViewModels
 
             asset.AssetId = (_assets.Max(x => x.AssetId)) + 1;
             _assets.Add(asset);
-        
-       
+
+
             //used for assets page
             var existingAsset = _unique_assets.FirstOrDefault(x => x.Name == asset.Name);
             if (existingAsset == null)

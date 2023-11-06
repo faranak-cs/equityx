@@ -3,9 +3,13 @@ using System.Collections.ObjectModel;
 
 namespace EquityX.Maui.Views;
 
+
+
 public partial class SummaryPage : ContentPage
 {
-	public SummaryPage()
+    private EquityX.Maui.Models.Crypto crypto;
+    private EquityX.Maui.Models.Stocks stocks;
+    public SummaryPage()
 	{
 		InitializeComponent();
 	}
@@ -14,9 +18,10 @@ public partial class SummaryPage : ContentPage
     {
         base.OnAppearing();
         
-        var assets = new ObservableCollection<EquityX.Maui.Models.Assets>((IEnumerable<Models.Assets>)PortfolioPageViewModel.GetAssets());
+        var assets = new ObservableCollection<EquityX.Maui.Models.Assets>(PortfolioPageViewModel.GetAssets());
         listAssets.ItemsSource = assets;
     }
+
 
     private void btnHome_Clicked(object sender, EventArgs e)
     {

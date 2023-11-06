@@ -31,6 +31,7 @@ public partial class StocksPage : ContentPage
             //logic
             await Shell.Current.GoToAsync($"{nameof(PortfolioPage)}?stocksid={((Stocks)listStocks.SelectedItem).StockId}");
 
+
             /*DisplayAlert("Status", "OK", "X");*/
         }
     }
