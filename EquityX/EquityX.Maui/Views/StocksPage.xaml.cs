@@ -32,7 +32,7 @@ public partial class StocksPage : ContentPage
             await Shell.Current.GoToAsync($"{nameof(PortfolioPage)}?stocksid={((Stocks)listStocks.SelectedItem).StockId}");
 
 
-            /*DisplayAlert("Status", "OK", "X");*/
+            // /*DisplayAlert("Status", "OK", "X");*/
         }
     }
 }
