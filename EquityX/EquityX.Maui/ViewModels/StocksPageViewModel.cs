@@ -1,10 +1,4 @@
-﻿using EquityX.Maui.ViewModels;
-using EquityX.Maui.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using EquityX.Maui.Models;
 
 namespace EquityX.Maui.ViewModels
 {
@@ -22,9 +16,9 @@ namespace EquityX.Maui.ViewModels
 
         public static Stocks GetStockById(int stockid)
         {
-            var stock = _stocks.FirstOrDefault(x => x.StockId==stockid);
+            var stock = _stocks.FirstOrDefault(x => x.StockId == stockid);
 
-            if(stock != null)
+            if (stock != null)
             {
                 return new Stocks
                 {
@@ -32,13 +26,26 @@ namespace EquityX.Maui.ViewModels
                     Name = stock.Name,
                     Price = stock.Price
                 };
-                
+
             }
             return null;
         }
+
+        public static string BuyStockByUnit(int stockUnit, int stockId)
+        {
+            if (stockUnit == 1)
+            {
+                return "y";
+            }
+            else
+            {
+                return "n";
+            }
+
+        }
     }
 
-   
+
 
 
 }

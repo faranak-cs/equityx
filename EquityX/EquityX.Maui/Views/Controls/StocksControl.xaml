@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="EquityX.Maui.Views.Controls.StocksControl">
+    <VerticalStackLayout Spacing="20" Margin="20,20,20,20">
+        <Frame Padding="10,2,10,2">
+            <HorizontalStackLayout>
+                <Label Text="Stock" WidthRequest="60" VerticalOptions="Center"></Label>
+                <Entry x:Name="entryStock"></Entry>
+               
+            </HorizontalStackLayout>
+        </Frame>
+        <Frame Padding="10,2,10,2">
+            <HorizontalStackLayout>
+                <Label Text="Price" WidthRequest="60" VerticalOptions="Center"></Label>
+                <Entry x:Name="entryPrice"></Entry>
+                
+            </HorizontalStackLayout>
+        </Frame>
+        <Frame Padding="10,2,10,2">
+            <HorizontalStackLayout>
+                <Label Text="Unit" WidthRequest="60" VerticalOptions="Center"></Label>
+                <Entry x:Name="entryUnit" Keyboard="Numeric">
+                    <Entry.Behaviors>
+                        <toolkit:NumericValidationBehavior
+                            x:Name="unitValidator"
+                            Flags=" ValidateOnValueChanged"
+                            MinimumValue="1"
+                            MaximumValue="5"
+                            />
+                    </Entry.Behaviors>
+                </Entry>
+               
+            </HorizontalStackLayout>
+        </Frame>
+        
+     
+        <Button Text="Cancel" x:Name="btnCancel" Clicked="btnCancel_Clicked"></Button>
+        <Button Text="Confirm" x:Name="btnConfirm" Clicked="btnConfirm_Clicked"></Button>
+
+    </VerticalStackLayout>
+</ContentView>

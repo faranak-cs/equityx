@@ -2,6 +2,7 @@ namespace EquityX.Maui.Views;
 
 using EquityX.Maui.Models;
 using EquityX.Maui.ViewModels;
+using EquityX.Maui.Views.StockDetail;
 using System.Collections.ObjectModel;
 
 public partial class StocksPage : ContentPage
@@ -18,62 +19,37 @@ public partial class StocksPage : ContentPage
         listStocks.ItemsSource = stocks;
     }
 
-    private void btnHome_Clicked(object sender, EventArgs e)
-    {
-        Shell.Current.GoToAsync("..");
-    }
-
-    //private async void listStocks_ItemSelected(object sender, SelectedItemChangedEventArgs e)
-    //{
-    //    if (listStocks.SelectedItem != null)
-    //    {
-
-    //        //logic
-    //        await Shell.Current.GoToAsync($"{nameof(PortfolioPage)}?stocksid={((Stocks)listStocks.SelectedItem).StockId}");
-
-
-    //        // /*DisplayAlert("Status", "OK", "X");*/
-    //    }
-    //}
-
     //private async void listStocks_SelectionChanged(object sender, SelectionChangedEventArgs e)
     //{
     //    if (listStocks.SelectedItem != null)
     //    {
 
     //        //logic
-    //        //await Shell.Current.GoToAsync($"{nameof(PortfolioPage)}?stocksid={((Stocks)listStocks.SelectedItem).StockId}");
-    //        //await DisplayAlert("Status", "OK", "X");
+    //        //  await Shell.Current.GoToAsync($"{nameof(PortfolioPage)}?stocksid={((Stocks)listStocks.SelectedItem).StockId}");
 
+    //        await Shell.Current.GoToAsync($"{nameof(BuyStock)}?id={((Stocks)listStocks.SelectedItem).StockId}");
     //    }
     //}
 
+
+    // BUY BUTTON
     private async void btnBuy_Clicked(object sender, EventArgs e)
     {
         if (listStocks.SelectedItem != null)
         {
+            await Shell.Current.GoToAsync($"{nameof(BuyStock)}?id={((Stocks)listStocks.SelectedItem).StockId}");
 
-            //logic
-            await Shell.Current.GoToAsync($"{nameof(PortfolioPage)}?stocksid={((Stocks)listStocks.SelectedItem).StockId}");
+
 
 
         }
 
     }
 
-    private async void btnSell_Clicked(object sender, EventArgs e)
+    // SELL BUTTON
+    private void btnSell_Clicked(object sender, EventArgs e)
     {
-        if (listStocks.SelectedItem != null)
-        {
 
-            //logic
-            await Shell.Current.GoToAsync($"{nameof(PortfolioPage)}?stocksid={((Stocks)listStocks.SelectedItem).StockId}");
-
-
-        }
-
+        DisplayAlert("Status", "SELL STOCK", "X");
     }
-
-
-
 }

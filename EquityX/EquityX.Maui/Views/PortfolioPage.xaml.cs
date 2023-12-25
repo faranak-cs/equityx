@@ -1,6 +1,5 @@
 namespace EquityX.Maui.Views;
 
-using EquityX.Maui.Models;
 using EquityX.Maui.ViewModels;
 using System.Collections.ObjectModel;
 
