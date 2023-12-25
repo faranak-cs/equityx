@@ -7,17 +7,19 @@
              Shell.BackgroundColor="Black">
 
     <Grid RowDefinitions="*, 50"
-          ColumnDefinitions="*"
-          Padding="10">
+              ColumnDefinitions="*"
+              Padding="10">
 
         <CollectionView Grid.Row="0"
-                        x:Name="listStocks"
-                        BackgroundColor="#f8f9fa"
-                        SelectionMode="Single"
-                        SelectionChanged="listStocks_SelectionChanged">
-
+                            x:Name="listStocks"
+                            BackgroundColor="#f8f9fa"
+                            SelectionMode="Single"
+                            >
             <CollectionView.ItemTemplate>
+
                 <DataTemplate>
+
+
                     <Grid Padding="10">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"/>
@@ -25,39 +27,40 @@
                         </Grid.RowDefinitions>
 
                         <Label Text="{Binding Name}"
-                       FontAttributes="Bold"
-                       FontSize="16"/>
+                           FontAttributes="Bold"
+                           FontSize="16"/>
                         <Label Text="{Binding Price}"
-                       Grid.Row="1"
-                       TextColor="Gray"/>
+                           Grid.Row="1"
+                           TextColor="Gray"/>
                     </Grid>
+
+
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
 
-        <!--<ListView Grid.Row="0"
-              x:Name="listStocks"
-              BackgroundColor="#f8f9fa"
-              ItemSelected="listStocks_ItemSelected">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <TextCell Text="{Binding Path=Name}"
-                              Detail="{Binding Path=Price}">
-                    </TextCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
 
-        </ListView>-->
+        <Grid ColumnDefinitions="*,*"
+                  Grid.Row="1">
 
+            <Button x:Name="btnBuy"
+                    HorizontalOptions="Center"
+                    WidthRequest="150"
+                    Grid.Column="0"
+                    Text="Buy"
+                    Clicked="btnBuy_Clicked"
+                    BackgroundColor="#ffc600"
+                    TextColor="Black"/>
+            <Button x:Name="btnSell"
+                    HorizontalOptions="Center"
+                    WidthRequest="150"
+                    Grid.Column="1"    
+                    Text="Sell"
+                    Clicked="btnSell_Clicked"   
+                    BackgroundColor="#ffc600"
+                    TextColor="Black"/>
+        </Grid>
 
-
-
-        <!--<Button x:Name="btnHome"
-                Grid.Row="1"
-                Text="Home"
-                Clicked="btnHome_Clicked"
-                BackgroundColor="#ffc600"
-                TextColor="Black"/>-->
 
     </Grid>
 </ContentPage>

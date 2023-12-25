@@ -6,10 +6,10 @@ using System.Collections.ObjectModel;
 
 public partial class StocksPage : ContentPage
 {
-	public StocksPage()
-	{
-		InitializeComponent();
-	}
+    public StocksPage()
+    {
+        InitializeComponent();
+    }
 
     protected override void OnAppearing()
     {
@@ -36,7 +36,19 @@ public partial class StocksPage : ContentPage
     //    }
     //}
 
-    private async void listStocks_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    //private async void listStocks_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    //{
+    //    if (listStocks.SelectedItem != null)
+    //    {
+
+    //        //logic
+    //        //await Shell.Current.GoToAsync($"{nameof(PortfolioPage)}?stocksid={((Stocks)listStocks.SelectedItem).StockId}");
+    //        //await DisplayAlert("Status", "OK", "X");
+
+    //    }
+    //}
+
+    private async void btnBuy_Clicked(object sender, EventArgs e)
     {
         if (listStocks.SelectedItem != null)
         {
@@ -46,5 +58,22 @@ public partial class StocksPage : ContentPage
 
 
         }
+
     }
+
+    private async void btnSell_Clicked(object sender, EventArgs e)
+    {
+        if (listStocks.SelectedItem != null)
+        {
+
+            //logic
+            await Shell.Current.GoToAsync($"{nameof(PortfolioPage)}?stocksid={((Stocks)listStocks.SelectedItem).StockId}");
+
+
+        }
+
+    }
+
+
+
 }
