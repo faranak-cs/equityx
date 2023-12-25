@@ -39,7 +39,7 @@ public partial class StocksPage : ContentPage
         {
             await Shell.Current.GoToAsync($"{nameof(BuyStock)}?id={((Stocks)listStocks.SelectedItem).StockId}");
 
-
+            listStocks.SelectedItem = null;
 
 
         }

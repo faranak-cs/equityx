@@ -34,10 +34,36 @@
                
             </HorizontalStackLayout>
         </Frame>
-        
-     
-        <Button Text="Cancel" x:Name="btnCancel" Clicked="btnCancel_Clicked"></Button>
-        <Button Text="Confirm" x:Name="btnConfirm" Clicked="btnConfirm_Clicked"></Button>
+
+
+        <!--<Frame BorderColor="White"
+               BackgroundColor="#f8f9fa"
+               CornerRadius="20">-->
+
+            <Grid ColumnDefinitions="*,*"                  
+                  ColumnSpacing="10">
+                <Button Grid.Column="0"
+                        Clicked="btnConfirm_Clicked"
+                        x:Name="btnConfirm"
+                        TextColor="Black"
+                        BackgroundColor="#ffc600"
+                        Text="Confirm"
+                        HorizontalOptions="Center"
+                        WidthRequest="100"/>
+
+                <Button Grid.Column="1"
+                        Clicked="btnCancel_Clicked"
+                        x:Name="btnCancel"
+                        TextColor="Black"   
+                        BackgroundColor="#ebebeb"
+                        Text="Cancel"
+                        HorizontalOptions="Center"
+                        WidthRequest="100"/>
+            </Grid>
+        <!--</Frame>-->
+
+        <!--<Button Text="Cancel" x:Name="btnCancel" Clicked="btnCancel_Clicked"></Button>
+        <Button Text="Confirm" x:Name="btnConfirm" Clicked="btnConfirm_Clicked"></Button>-->
 
     </VerticalStackLayout>
 </ContentView>

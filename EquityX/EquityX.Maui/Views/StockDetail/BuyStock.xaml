@@ -3,7 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:controls="clr-namespace:EquityX.Maui.Views.Controls"
              x:Class="EquityX.Maui.Views.StockDetail.BuyStock"
-             Title="Buy Stock">
+             Title="Buy Stock"
+             Shell.TitleColor="#ffc600"
+             Shell.BackgroundColor="Black">
 
     <controls:StocksControl x:Name="stockCtrl"
                             OnCancel="stockCtrl_OnCancel"

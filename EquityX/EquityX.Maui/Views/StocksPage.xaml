@@ -5,22 +5,36 @@
              Title="Stocks"
              Shell.TitleColor="#ffc600"
              Shell.BackgroundColor="Black">
+    <ContentPage.Resources>
+        <Style TargetType="Grid">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal" />
+                        <VisualState x:Name="Selected">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor"
+                                        Value="#ffc600" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+    </ContentPage.Resources>
 
     <Grid RowDefinitions="*, 50"
-              ColumnDefinitions="*"
-              Padding="10">
+          ColumnDefinitions="*"
+          Padding="10">
+
 
         <CollectionView Grid.Row="0"
-                            x:Name="listStocks"
-                            BackgroundColor="#f8f9fa"
-                            SelectionMode="Single"
-                            
-                            >
+                        x:Name="listStocks"
+                        BackgroundColor="White"
+                        SelectionMode="Single"
+                        >
             <CollectionView.ItemTemplate>
-
                 <DataTemplate>
-
-
                     <Grid Padding="10">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"/>
@@ -28,40 +42,43 @@
                         </Grid.RowDefinitions>
 
                         <Label Text="{Binding Name}"
-                           FontAttributes="Bold"
-                           FontSize="16"/>
+                               FontAttributes="Bold"
+                               FontSize="16"/>
                         <Label Text="{Binding Price}"
-                           Grid.Row="1"
-                           TextColor="Gray"/>
+                               Grid.Row="1"
+                               TextColor="Gray"/>
                     </Grid>
-
-
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
 
+        <!--<Frame Grid.Row="1"
+               BorderColor="White"
+               BackgroundColor="#f8f9fa"
+               CornerRadius="20"
+               Padding="5">--> 
+            <Grid Grid.Row="1"
+                  ColumnDefinitions="*,*"
+                  ColumnSpacing="10">
 
-        <Grid ColumnDefinitions="*,*"
-                  Grid.Row="1">
+                <Button Grid.Column="0"
+                        Clicked="btnBuy_Clicked"
+                        x:Name="btnBuy"
+                        TextColor="Black"
+                        BackgroundColor="#73e2a7"
+                        Text="Buy"
+                        HorizontalOptions="Center"
+                        WidthRequest="100"/>
 
-            <Button x:Name="btnBuy"
-                    HorizontalOptions="Center"
-                    WidthRequest="150"
-                    Grid.Column="0"
-                    Text="Buy"
-                    Clicked="btnBuy_Clicked"
-                    BackgroundColor="#ffc600"
-                    TextColor="Black"/>
-            <Button x:Name="btnSell"
-                    HorizontalOptions="Center"
-                    WidthRequest="150"
-                    Grid.Column="1"    
-                    Text="Sell"
-                    Clicked="btnSell_Clicked"   
-                    BackgroundColor="#ffc600"
-                    TextColor="Black"/>
-        </Grid>
-
-
+                <Button Grid.Column="1"
+                        Clicked="btnSell_Clicked"
+                        x:Name="btnSell"
+                        TextColor="Black"   
+                        BackgroundColor="#ef6f6c"
+                        Text="Sell"
+                        HorizontalOptions="Center"
+                        WidthRequest="100"/>
+            </Grid>
+        <!--</Frame>-->
     </Grid>
 </ContentPage>

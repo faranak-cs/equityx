@@ -23,8 +23,9 @@ public partial class BuyStock : ContentPage
             if (stock != null)
             {
                 stockCtrl.Stock = stock.Name;
-                // PRICE DATA TYPE IS DOUBLE
+                // STOCKCTRL PRICE DATA TYPE IS STRING
                 stockCtrl.Price = stock.Price.ToString();
+                // STOCKCTRL UNIT DATA TYPE IS STRING
                 stockCtrl.Unit = 1.ToString();
 
             }
@@ -44,6 +45,7 @@ public partial class BuyStock : ContentPage
         {
             DisplayAlert("Status", "Stock is bought", "OK");
             Shell.Current.GoToAsync("..");
+
         }
         // STOCK IS NOT BOUGHT
         else
