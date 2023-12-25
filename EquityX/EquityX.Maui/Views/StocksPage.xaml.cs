@@ -23,7 +23,20 @@ public partial class StocksPage : ContentPage
         Shell.Current.GoToAsync("..");
     }
 
-    private async void listStocks_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+    //private async void listStocks_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+    //{
+    //    if (listStocks.SelectedItem != null)
+    //    {
+
+    //        //logic
+    //        await Shell.Current.GoToAsync($"{nameof(PortfolioPage)}?stocksid={((Stocks)listStocks.SelectedItem).StockId}");
+
+
+    //        // /*DisplayAlert("Status", "OK", "X");*/
+    //    }
+    //}
+
+    private async void listStocks_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
         if (listStocks.SelectedItem != null)
         {
@@ -32,7 +45,6 @@ public partial class StocksPage : ContentPage
             await Shell.Current.GoToAsync($"{nameof(PortfolioPage)}?stocksid={((Stocks)listStocks.SelectedItem).StockId}");
 
 
-            // /*DisplayAlert("Status", "OK", "X");*/
         }
     }
 }

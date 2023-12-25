@@ -14,17 +14,17 @@ public partial class PortfolioPage : ContentPage
     private EquityX.Maui.Models.Stocks stocks;
 
     public PortfolioPage()
-	{
-		InitializeComponent();
-      
-	}
+    {
+        InitializeComponent();
+
+    }
 
     protected override void OnAppearing()
     {
         base.OnAppearing();
         var assets = new ObservableCollection<EquityX.Maui.Models.Assets>(PortfolioPageViewModel.GetUniqueAssets());
         listAssets.ItemsSource = assets;
-        lblAsset.Text = "$"+ PortfolioPageViewModel.GetSum().ToString();
+        lblAsset.Text = "$" + PortfolioPageViewModel.GetSum().ToString();
 
     }
 
@@ -37,10 +37,10 @@ public partial class PortfolioPage : ContentPage
 
             PortfolioPageViewModel.AddAsset(new Models.Assets
             {
-                
+
                 Name = crypto.Name,
                 Investment = crypto.Price
-            }); 
+            });
 
             //listAssets.ItemsSource=new List<Crypto> { crypto };
         }
@@ -50,7 +50,7 @@ public partial class PortfolioPage : ContentPage
     {
         set
         {
-            stocks=StocksPageViewModel.GetStockById(int.Parse(value));
+            stocks = StocksPageViewModel.GetStockById(int.Parse(value));
 
             PortfolioPageViewModel.AddAsset(new Models.Assets
             {
@@ -63,5 +63,10 @@ public partial class PortfolioPage : ContentPage
     private void btnHome_Clicked(object sender, EventArgs e)
     {
         Shell.Current.GoToAsync(nameof(HomePage));
+    }
+
+    private void listAssets_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+
     }
 }

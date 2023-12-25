@@ -10,7 +10,32 @@
           ColumnDefinitions="*"
           Padding="10">
 
-        <ListView Grid.Row="0"
+        <CollectionView Grid.Row="0"
+                x:Name="listCryptos"
+                BackgroundColor="#f8f9fa"
+                SelectionMode="Single"
+                SelectionChanged="listCryptos_SelectionChanged">
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <Label Text="{Binding Name}"
+                               FontAttributes="Bold"
+                               FontSize="16"/>
+                        <Label Text="{Binding Price}"
+                               Grid.Row="1"
+                               TextColor="Gray"/>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <!--<ListView Grid.Row="0"
                   x:Name="listCryptos"
                   BackgroundColor="#f8f9fa"
                   ItemSelected="listCryptos_ItemSelected">
@@ -22,20 +47,20 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
 
-        </ListView>
+        </ListView>-->
 
-        <Button x:Name="btnHome"
+        <!--<Button x:Name="btnHome"
                 Grid.Row="1"
                 Text="Home"
                 Clicked="btnHome_Clicked"
                 BackgroundColor="#ffc600"
-                TextColor="Black"/>
+                TextColor="Black"/>-->
 
     </Grid>
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
 </ContentPage>
