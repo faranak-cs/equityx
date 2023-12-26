@@ -52,7 +52,7 @@ public partial class AddFunds : ContentPage
         // AMOUNT IS NOT ADDED
         else
         {
-            DisplayAlert("Status", "Sorry, We don't have enought money", "OK");
+            DisplayAlert("Status", "Sorry, We don't have enough money", "OK");
             Shell.Current.GoToAsync("..");
         }
     }

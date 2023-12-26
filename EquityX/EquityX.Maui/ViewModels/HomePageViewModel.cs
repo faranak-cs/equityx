@@ -44,14 +44,22 @@ namespace EquityX.Maui.ViewModels
         }
 
         // WITHDRAW FUNDS LOGIC
-        public static string WithdrawFunds(int userId, int amount)
+        public static string WithdrawFunds(int userId, double amount)
         {
             var user = _users.FirstOrDefault(x => x.Id == userId);
             if (user != null)
             {
-                user.Funds -= amount;
-                // AMOUNT IS WITHDRAWN
-                return "y";
+                if (amount <= user.Funds)
+                {
+                    user.Funds -= amount;
+                    // AMOUNT IS WITHDRAWN
+                    return "y";
+                }
+                else
+                {
+                    return "n";
+                }
+
             }
             else
             {

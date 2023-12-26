@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:EquityX.Maui.Views.Controls"
              x:Class="EquityX.Maui.Views.Funds.WithdrawFunds"
              Title="Withdraw Funds"
              Shell.TitleColor="#ffc600"
              Shell.BackgroundColor="Black">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    
+    <controls:FundsControl x:Name="fundCtrl"                                                    
+                           OnCancel="fundCtrl_OnCancel"
+                           OnConfirm="fundCtrl_OnConfirm"
+                           OnError="fundCtrl_OnError" ></controls:FundsControl>
 </ContentPage>

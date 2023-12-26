@@ -6,21 +6,21 @@
     <VerticalStackLayout Spacing="20" Margin="20,20,20,20">
         <Frame Padding="10,2,10,2">
             <HorizontalStackLayout>
-                <Label Text="Wallet Owner" WidthRequest="60" VerticalOptions="Center"></Label>
+                <Label Text="Wallet Owner:" WidthRequest="120" VerticalOptions="Center"></Label>
                 <Entry x:Name="entryOwner"></Entry>
 
             </HorizontalStackLayout>
         </Frame>
         <Frame Padding="10,2,10,2">
             <HorizontalStackLayout>
-                <Label Text="Available Funds" WidthRequest="60" VerticalOptions="Center"></Label>
+                <Label Text="Available Funds: $" WidthRequest="120" VerticalOptions="Center"></Label>
                 <Entry x:Name="entryAvailableFunds"></Entry>
 
             </HorizontalStackLayout>
         </Frame>
         <Frame Padding="10,2,10,2">
             <HorizontalStackLayout>
-                <Label Text="Amount: $" WidthRequest="60" VerticalOptions="Center"></Label>
+                <Label Text="Amount: $" WidthRequest="120" VerticalOptions="Center"></Label>
                 <Entry x:Name="entryAmount" Keyboard="Numeric">
                     <Entry.Behaviors>
                         <toolkit:NumericValidationBehavior
