@@ -4,11 +4,14 @@ namespace EquityX.Maui.ViewModels
 {
     public static class HomePageViewModel
     {
+
         public static List<User> _users = new List<User>()
         {
             new User {Id=0, Name="Faran", Funds=0.00},
             new User {Id=1,Name="Khan", Funds=0.00}
         };
+
+        public static List<User> GetUsers() => _users;
 
         // GET USER DETAILS USING ID
         public static User GetUserById(int userId)

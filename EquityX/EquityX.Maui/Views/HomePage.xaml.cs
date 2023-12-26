@@ -16,9 +16,11 @@ public partial class HomePage : ContentPage
     protected override void OnAppearing()
     {
         base.OnAppearing();
-        var userDetails = HomePageViewModel.GetUserById(user.Id);
-        CurrentUser.Text = "Hi, " + userDetails.Name;
-        AvailableFunds.Text = "$" + userDetails.Funds.ToString();
+        //var users = new ObservableCollection<EquityX.Maui.Models.User>(HomePageViewModel.GetUsers());
+        //var user = users[0];
+        var userD = HomePageViewModel.GetUserById(user.Id);
+        CurrentUser.Text = "Hi, " + userD.Name;
+        AvailableFunds.Text = "$" + userD.Funds.ToString();
     }
 
 

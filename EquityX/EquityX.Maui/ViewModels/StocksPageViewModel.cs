@@ -43,14 +43,41 @@ namespace EquityX.Maui.ViewModels
         // BUY STOCK LOGIC
         public static string BuyStockByUnit(int stockUnit, int stockId)
         {
-            if (stockUnit == 1)
+            // SHORTCUT
+            var _users = HomePageViewModel.GetUsers();
+            var user = _users.FirstOrDefault(x => x.Id == 0);
+
+            // GET THE STOCK
+            var stock = _stocks.FirstOrDefault(x => x.StockId == stockId);
+
+            if (stock != null)
             {
-                return "y";
+                var totalPrice = stockUnit * stock.Price;
+
+                // HOW CAN I ACCESS THE FUNDS?
+                if (totalPrice <= user.Funds)
+                {
+                    user.Funds -= totalPrice;
+
+                    // ADD THE STOCK INTO INVESTMENTS
+                    PortfolioPageViewModel.AddAsset(new Models.Assets
+                    {
+
+                        Name = stock.Name,
+                        Investment = stock.Price
+                    });
+
+
+                    return "y";
+                }
+                else
+                {
+                    return "n";
+                }
+
+
             }
-            else
-            {
-                return "n";
-            }
+            else { return "n"; }
 
         }
 

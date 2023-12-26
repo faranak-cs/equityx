@@ -37,7 +37,8 @@ public partial class StocksPage : ContentPage
     {
         if (listStocks.SelectedItem != null)
         {
-            await Shell.Current.GoToAsync($"{nameof(BuyStock)}?id={((Stocks)listStocks.SelectedItem).StockId}");
+            // HOW CAN I PASS TWO PARAMETERES?
+            await Shell.Current.GoToAsync($"{nameof(BuyStock)}?sid={((Stocks)listStocks.SelectedItem).StockId}");
             listStocks.SelectedItem = null;
         }
     }
