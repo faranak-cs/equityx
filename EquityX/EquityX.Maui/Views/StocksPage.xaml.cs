@@ -38,18 +38,18 @@ public partial class StocksPage : ContentPage
         if (listStocks.SelectedItem != null)
         {
             await Shell.Current.GoToAsync($"{nameof(BuyStock)}?id={((Stocks)listStocks.SelectedItem).StockId}");
-
             listStocks.SelectedItem = null;
-
-
         }
-
     }
 
     // SELL BUTTON
-    private void btnSell_Clicked(object sender, EventArgs e)
+    private async void btnSell_Clicked(object sender, EventArgs e)
     {
 
-        DisplayAlert("Status", "SELL STOCK", "X");
+        if (listStocks.SelectedItem != null)
+        {
+            await Shell.Current.GoToAsync($"{nameof(SellStock)}?id={((Stocks)listStocks.SelectedItem).StockId}");
+            listStocks.SelectedItem = null;
+        }
     }
 }

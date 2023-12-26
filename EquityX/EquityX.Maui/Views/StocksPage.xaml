@@ -23,7 +23,7 @@
         </Style>
     </ContentPage.Resources>
 
-    <Grid RowDefinitions="*, 50"
+    <Grid RowDefinitions="5*, *"
           ColumnDefinitions="*"
           Padding="10">
 
@@ -59,7 +59,8 @@
                Padding="5">--> 
             <Grid Grid.Row="1"
                   ColumnDefinitions="*,*"
-                  ColumnSpacing="10">
+                  ColumnSpacing="10"
+                  >
 
                 <Button Grid.Column="0"
                         Clicked="btnBuy_Clicked"
@@ -68,6 +69,7 @@
                         BackgroundColor="#73e2a7"
                         Text="Buy"
                         HorizontalOptions="Center"
+                        HeightRequest="50"
                         WidthRequest="100"/>
 
                 <Button Grid.Column="1"
@@ -77,6 +79,7 @@
                         BackgroundColor="#ef6f6c"
                         Text="Sell"
                         HorizontalOptions="Center"
+                        HeightRequest="50"
                         WidthRequest="100"/>
             </Grid>
         <!--</Frame>-->

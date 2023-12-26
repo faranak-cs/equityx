@@ -10,6 +10,15 @@ namespace EquityX.Maui.ViewModels
         new Stocks {StockId=1, Name="Apple", Price=350},
         new Stocks {StockId=2, Name="Tesla", Price=150 },
         new Stocks {StockId=3, Name="Google", Price=400 },
+        new Stocks {StockId=4, Name="Systems", Price=370.5 },
+        new Stocks {StockId=5, Name="NetSol", Price=290.75},
+        new Stocks {StockId=6, Name="SadaPay", Price=150.20 },
+        new Stocks {StockId=7, Name="NayaPay", Price=100.48 },
+        new Stocks {StockId=8, Name="Amazon", Price=400 },
+        new Stocks {StockId=9, Name="Walmart", Price=370.5 },
+        new Stocks {StockId=10, Name="MasterCard", Price=290.75},
+        new Stocks {StockId=11, Name="Visa", Price=150.20 },
+        new Stocks {StockId=12, Name="Oracle", Price=100.48 },
         };
 
         public static List<Stocks> GetStocks() => _stocks;
@@ -31,7 +40,22 @@ namespace EquityX.Maui.ViewModels
             return null;
         }
 
+        // BUY STOCK LOGIC
         public static string BuyStockByUnit(int stockUnit, int stockId)
+        {
+            if (stockUnit == 1)
+            {
+                return "y";
+            }
+            else
+            {
+                return "n";
+            }
+
+        }
+
+        // SELL STOCK LOGIC
+        public static string SellStockByUnit(int stockUnit, int stockId)
         {
             if (stockUnit == 1)
             {
