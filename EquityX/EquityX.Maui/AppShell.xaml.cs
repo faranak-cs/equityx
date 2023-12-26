@@ -1,5 +1,6 @@
 ﻿//namespace of Views folder
 using EquityX.Maui.Views;
+using EquityX.Maui.Views.Funds;
 using EquityX.Maui.Views.StockDetail;
 
 namespace EquityX.Maui
@@ -10,6 +11,8 @@ namespace EquityX.Maui
         {
             InitializeComponent();
 
+            // REGISTER ALL THE VIEWS FIRST TO ACCESS THEM 
+
             Routing.RegisterRoute(nameof(SignUpPage), typeof(SignUpPage));
             Routing.RegisterRoute(nameof(HomePage), typeof(HomePage));
             Routing.RegisterRoute(nameof(PortfolioPage), typeof(PortfolioPage));
@@ -19,13 +22,8 @@ namespace EquityX.Maui
             Routing.RegisterRoute(nameof(MarketPage), typeof(MarketPage));
             Routing.RegisterRoute(nameof(BuyStock), typeof(BuyStock));
             Routing.RegisterRoute(nameof(SellStock), typeof(SellStock));
-
-
-
-
-
-
-
+            Routing.RegisterRoute(nameof(AddFunds), typeof(AddFunds));
+            Routing.RegisterRoute(nameof(WithdrawFunds), typeof(WithdrawFunds));
         }
     }
 }

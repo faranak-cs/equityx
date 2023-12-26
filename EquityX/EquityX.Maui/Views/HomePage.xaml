@@ -14,7 +14,7 @@
           ColumnSpacing="10"
           Margin="50,50">
 
-        <Label Text="Hello, Faran Khan"
+        <Label x:Name="CurrentUser"
                TextColor="Black"/>
 
         <Frame Grid.ColumnSpan="2"
@@ -30,13 +30,14 @@
 
                 <Label Grid.ColumnSpan="2"
                        Grid.Row="0"
-                       Text="Available Funds: $500"
+                       x:Name="AvailableFunds"
                        TextColor="Black"
                        />
 
                 <Button Grid.Column="0"
                         Grid.Row="1"
                         x:Name="btnAddFunds"
+                        Clicked="btnAddFunds_Clicked"
                         TextColor="Black"
                         BackgroundColor="#ffc600"
                         Text="Deposit"
@@ -47,8 +48,8 @@
                 <Button Grid.Column="1"
                         Grid.Row="1"
                         x:Name="btnWithdrawFunds"
-                        TextColor="Black"
-                                             
+                        Clicked="btnWithdrawFunds_Clicked"  
+                        TextColor="Black"            
                         BackgroundColor="#ebebeb"
                         Text="Withdraw"
                         HorizontalOptions="Center"
