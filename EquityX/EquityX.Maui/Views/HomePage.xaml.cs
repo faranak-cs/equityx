@@ -7,7 +7,7 @@ namespace EquityX.Maui.Views;
 public partial class HomePage : ContentPage
 {
     // CREATE OBJECT OF USER CLASS
-    private Models.User user = HomePageViewModel.GetUserById(0);
+    private Models.User User = HomePageViewModel.GetUserById(0);
     public HomePage()
     {
         InitializeComponent();
@@ -16,11 +16,9 @@ public partial class HomePage : ContentPage
     protected override void OnAppearing()
     {
         base.OnAppearing();
-        //var users = new ObservableCollection<EquityX.Maui.Models.User>(HomePageViewModel.GetUsers());
-        //var user = users[0];
-        var userD = HomePageViewModel.GetUserById(user.Id);
-        CurrentUser.Text = "Hi, " + userD.Name;
-        AvailableFunds.Text = "$" + userD.Funds.ToString();
+        var user = HomePageViewModel.GetUserById(User.Id);
+        CurrentUser.Text = "Hi, " + user.Name;
+        AvailableFunds.Text = "$" + user.Funds.ToString();
     }
 
 
@@ -44,13 +42,13 @@ public partial class HomePage : ContentPage
     // ADD BUTTON
     private async void btnAddFunds_Clicked(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync($"{nameof(AddFunds)}?id={user.Id}");
+        await Shell.Current.GoToAsync($"{nameof(AddFunds)}?id={User.Id}");
     }
 
     // WITHDRAW BUTTON
     private async void btnWithdrawFunds_Clicked(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync($"{nameof(WithdrawFunds)}?id={user.Id}");
+        await Shell.Current.GoToAsync($"{nameof(WithdrawFunds)}?id={User.Id}");
 
     }
 

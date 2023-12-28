@@ -47,7 +47,7 @@ namespace EquityX.Maui.ViewModels
             var _users = HomePageViewModel.GetUsers();
             var user = _users.FirstOrDefault(x => x.Id == 0);
 
-            // GET THE STOCK
+            // GET THE STOCK SELECTED BY THE USER
             var stock = _stocks.FirstOrDefault(x => x.StockId == stockId);
 
             if (stock != null)
@@ -59,10 +59,10 @@ namespace EquityX.Maui.ViewModels
                 {
                     user.Funds -= totalPrice;
 
-                    // ADD THE STOCK INTO INVESTMENTS
+                    // ADD THE STOCK INTO ASSETS
                     PortfolioPageViewModel.AddAsset(new Models.Assets
                     {
-
+                        Unit = stockUnit,
                         Name = stock.Name,
                         Investment = stock.Price
                     });
@@ -74,25 +74,44 @@ namespace EquityX.Maui.ViewModels
                 {
                     return "n";
                 }
-
-
             }
             else { return "n"; }
 
         }
 
         // SELL STOCK LOGIC
-        public static string SellStockByUnit(int stockUnit, int stockId)
+        public static string SellStockByUnit(int stockUnit, double stockPrice, string stockName)
         {
-            if (stockUnit == 1)
+            // GET SELECTED STOCK FROM ASSETS
+            var asset = PortfolioPageViewModel.GetAssetByName(stockName);
+
+            if (asset == null)
             {
-                return "y";
+                // USER DOES NOT HAVE THE SELECTED STOCK IN ASSETS
+                return "n";
             }
             else
             {
-                return "n";
-            }
+                if (stockUnit > asset.Unit)
+                {
+                    return "n";
+                }
+                else
+                {
+                    var money = stockPrice * stockUnit;
 
+                    // SHORTCUT 
+                    // ADD MONEY TO USER FUNDS
+                    var _users = HomePageViewModel.GetUsers();
+                    var user = _users.FirstOrDefault(x => x.Id == 0);
+                    user.Funds += money;
+
+                    // REMOVE SELECTED STOCK FROM ASSETS
+                    PortfolioPageViewModel.RemoveAsset(stockUnit, stockName, stockPrice);
+
+                    return "y";
+                }
+            }
         }
     }
 

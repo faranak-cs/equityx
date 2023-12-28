@@ -37,7 +37,7 @@ public partial class SellStock : ContentPage
         int stockUnit = int.Parse(stockCtrl.Unit);
 
         // PASS STOCK UNIT AND STOCK ID TO STOCKS VIEW MODEL FUNCTION
-        string response = StocksPageViewModel.SellStockByUnit(stockUnit, stock.StockId);
+        string response = StocksPageViewModel.SellStockByUnit(stockUnit, stock.Price, stock.Name);
 
         // STOCK IS SOLD
         if (response == "y")
