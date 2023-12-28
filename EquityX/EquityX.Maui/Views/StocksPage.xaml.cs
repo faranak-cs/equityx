@@ -19,26 +19,13 @@ public partial class StocksPage : ContentPage
         listStocks.ItemsSource = stocks;
     }
 
-    //private async void listStocks_SelectionChanged(object sender, SelectionChangedEventArgs e)
-    //{
-    //    if (listStocks.SelectedItem != null)
-    //    {
-
-    //        //logic
-    //        //  await Shell.Current.GoToAsync($"{nameof(PortfolioPage)}?stocksid={((Stocks)listStocks.SelectedItem).StockId}");
-
-    //        await Shell.Current.GoToAsync($"{nameof(BuyStock)}?id={((Stocks)listStocks.SelectedItem).StockId}");
-    //    }
-    //}
-
-
     // BUY BUTTON
     private async void btnBuy_Clicked(object sender, EventArgs e)
     {
         if (listStocks.SelectedItem != null)
         {
-            // HOW CAN I PASS TWO PARAMETERES?
-            await Shell.Current.GoToAsync($"{nameof(BuyStock)}?sid={((Stocks)listStocks.SelectedItem).StockId}");
+            // HOW CAN I PASS TWO PARAMETERS?
+            await Shell.Current.GoToAsync($"{nameof(BuyStock)}?id={((Stocks)listStocks.SelectedItem).StockId}");
             listStocks.SelectedItem = null;
         }
     }

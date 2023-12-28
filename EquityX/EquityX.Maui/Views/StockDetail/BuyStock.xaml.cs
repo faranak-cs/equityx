@@ -1,21 +1,18 @@
 namespace EquityX.Maui.Views.StockDetail;
 using EquityX.Maui.ViewModels;
 
-[QueryProperty(nameof(UserId), "uid")]
-[QueryProperty(nameof(StockId), "sid")]
+
+[QueryProperty(nameof(StockId), "id")]
 public partial class BuyStock : ContentPage
 {
     // CREATE OBJECT OF STOCKS CLASS
     private Models.Stocks stock;
-    private Models.User user;
     public BuyStock()
     {
         InitializeComponent();
     }
 
-
-
-    // CREATE "STOCKSID" PROPERTY TO GET ALL DETAILS
+    // CREATE "StockId" PROPERTY TO GET ALL DETAILS
     public string StockId
     {
         set
@@ -30,15 +27,6 @@ public partial class BuyStock : ContentPage
                 stockCtrl.Unit = 1.ToString();
 
             }
-        }
-    }
-
-    // CREATE "USERID" PROPERTY TO GET ALL DETAILS
-    public string UserId
-    {
-        set
-        {
-            user = HomePageViewModel.GetUserById(int.Parse(value));
         }
     }
 

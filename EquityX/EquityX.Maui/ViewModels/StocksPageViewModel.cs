@@ -54,7 +54,7 @@ namespace EquityX.Maui.ViewModels
             {
                 var totalPrice = stockUnit * stock.Price;
 
-                // HOW CAN I ACCESS THE FUNDS?
+                // HOW CAN I ACCESS THE FUNDS? DEPENDENCY INJECTION SINGLETON
                 if (totalPrice <= user.Funds)
                 {
                     user.Funds -= totalPrice;
@@ -64,7 +64,7 @@ namespace EquityX.Maui.ViewModels
                     {
                         Unit = stockUnit,
                         Name = stock.Name,
-                        Investment = stock.Price
+                        Investment = totalPrice
                     });
 
 
