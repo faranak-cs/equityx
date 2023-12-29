@@ -36,7 +36,7 @@
                                Grid.RowSpan="2"
                                VerticalOptions="Center"
                                TextColor="Gray"/>
-                        <Label Text="Profit and Loss"
+                        <Label Text="Profit and Loss" 
                                Grid.Column="2"
                                Grid.RowSpan="2"
                                VerticalOptions="Center"

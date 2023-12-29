@@ -24,6 +24,8 @@ namespace EquityX.Maui
             Routing.RegisterRoute(nameof(SellStock), typeof(SellStock));
             Routing.RegisterRoute(nameof(AddFunds), typeof(AddFunds));
             Routing.RegisterRoute(nameof(WithdrawFunds), typeof(WithdrawFunds));
+            Routing.RegisterRoute(nameof(IndividualSummary), typeof(IndividualSummary));
+
         }
     }
 }

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EquityX.Maui.Views.IndividualSummary"
+             Title="Individual Summary"
+             Shell.TitleColor="#ffc600"
+             Shell.BackgroundColor="Black">
+
+    <Grid RowDefinitions="*"
+          ColumnDefinitions="*"
+          Padding="10">
+
+        <CollectionView Grid.Row="0"                       
+                        x:Name="listAssets"
+                        BackgroundColor="#f8f9fa"
+                        SelectionMode="None">
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid RowDefinitions="*,*"                        
+                          ColumnDefinitions="*"
+                          Padding="10">
+
+                        <Label Text="{Binding Name}"
+                                   Grid.Column="0"
+                                   Grid.Row="0"
+                                   FontAttributes="Bold"
+                                   FontSize="16"/>
+
+                        <CollectionView x:Name="listSummary"
+                                        Grid.Column="0"
+                                        Grid.Row="1"
+                                        ItemsSource="{Binding Summary}">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackLayout>
+                                        <HorizontalStackLayout>
+                                            <Label VerticalOptions="Center">
+                                                <Label.Text>
+                                                    <MultiBinding StringFormat="{}{0} units bought @ ${1}">
+                                                        <Binding Path="Unit" />
+                                                        <Binding Path="BuyPrice" />
+                                                    </MultiBinding>
+                                                </Label.Text>
+                                            </Label>
+                                        </HorizontalStackLayout>
+                                    </StackLayout>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                        
+                        
+                    </Grid>
+                    
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage>
