@@ -7,8 +7,6 @@ namespace EquityX.Maui.Views;
 
 public partial class SummaryPage : ContentPage
 {
-    private EquityX.Maui.Models.Crypto crypto;
-    private EquityX.Maui.Models.Stocks stocks;
     public SummaryPage()
     {
         InitializeComponent();
@@ -18,7 +16,7 @@ public partial class SummaryPage : ContentPage
     {
         base.OnAppearing();
 
-        var assets = new ObservableCollection<EquityX.Maui.Models.Assets>(PortfolioPageViewModel.GetAssets());
+        var assets = new ObservableCollection<Models.Assets>(PortfolioPageViewModel.GetAssets());
         listAssets.ItemsSource = assets;
     }
 
@@ -26,5 +24,10 @@ public partial class SummaryPage : ContentPage
     private void btnHome_Clicked(object sender, EventArgs e)
     {
         Shell.Current.GoToAsync(nameof(HomePage));
+    }
+
+    private void listAssets_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+        // GO TO DETAILS OF INDIVIDUAL ASSET DETAILS
     }
 }

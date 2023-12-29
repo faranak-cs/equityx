@@ -24,11 +24,11 @@
             </VerticalStackLayout>
         </Border>
 
-        <CollectionView Grid.Row="1"
-        x:Name="listAssets"
-        BackgroundColor="#f8f9fa"
-        SelectionMode="Single"
-        SelectionChanged="listAssets_SelectionChanged">
+        <CollectionView Grid.Row="1"                       
+                        x:Name="listAssets"
+                        BackgroundColor="#f8f9fa"
+                        SelectionMode="Single"
+                        SelectionChanged="listAssets_SelectionChanged">
 
             <CollectionView.ItemTemplate>
                 <DataTemplate>

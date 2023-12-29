@@ -6,12 +6,48 @@
              Shell.TitleColor="#ffc600"
              Shell.BackgroundColor="Black">
 
-    <Grid RowDefinitions="*,50"
+    <Grid RowDefinitions="*"
           ColumnDefinitions="*"
           Padding="10">
-
         
-        <ListView Grid.Row="0"
+        <CollectionView Grid.Row="1"                       
+                        x:Name="listAssets"
+                        BackgroundColor="#f8f9fa"
+                        SelectionMode="Single"
+                        SelectionChanged="listAssets_SelectionChanged">
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid RowDefinitions="*,*"
+                          ColumnDefinitions="*,*,*"
+                          Padding="10">
+
+                        <Label Text="{Binding Name}"
+                               Grid.Column="0"
+                               Grid.Row="0"
+                               FontAttributes="Bold"
+                               FontSize="16"/>
+                        <Label Text="{Binding Unit}"
+                               Grid.Column="0"
+                               Grid.Row="1"
+                               TextColor="Gray"/>
+                        <Label Text="Current Price"
+                               Grid.Column="1"
+                               Grid.RowSpan="2"
+                               VerticalOptions="Center"
+                               TextColor="Gray"/>
+                        <Label Text="Profit and Loss"
+                               Grid.Column="2"
+                               Grid.RowSpan="2"
+                               VerticalOptions="Center"
+                               TextColor="Gray"/>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+
+        <!--<ListView Grid.Row="0"
               BackgroundColor="#f8f9fa"
               x:Name="listAssets">
 
@@ -28,7 +64,7 @@
             Text="Home"
             Clicked="btnHome_Clicked"
             BackgroundColor="#ffc600"
-            TextColor="Black"/>
+            TextColor="Black"/>-->
 
     </Grid>
 

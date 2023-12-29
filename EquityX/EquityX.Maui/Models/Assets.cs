@@ -7,5 +7,13 @@
         public double Investment { get; set; }
         public int Unit { get; set; }
 
+        public List<StockHistory> Summary { get; set; }
     }
+
+    public class StockHistory
+    {
+        public int Unit { get; set; }
+        public double BuyPrice { get; set; }
+    }
+
 }

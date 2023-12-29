@@ -40,7 +40,12 @@ namespace EquityX.Maui.ViewModels
             return null;
         }
 
-        // BUY STOCK LOGIC
+        /// <summary>
+        /// BUY STOCK LOGIC
+        /// </summary>
+        /// <param name="stockUnit"></param>
+        /// <param name="stockId"></param>
+        /// <returns></returns>
         public static string BuyStockByUnit(int stockUnit, int stockId)
         {
             // SHORTCUT
@@ -64,7 +69,11 @@ namespace EquityX.Maui.ViewModels
                     {
                         Unit = stockUnit,
                         Name = stock.Name,
-                        Investment = totalPrice
+                        Investment = totalPrice,
+                        Summary = new List<StockHistory>
+                        {
+                            new StockHistory { Unit = stockUnit, BuyPrice = stock.Price }
+                        }
                     });
 
 

@@ -6,23 +6,19 @@ namespace EquityX.Maui.ViewModels
     //static repo for mockups/fake data
     public static class PortfolioPageViewModel
     {
-        //public static List<Assets> _assets = new List<Assets>()
-        //{  new Assets {AssetId=0, Name="Google", Investment=400, Unit=1},
-        //   new Assets {AssetId=1, Name="Google", Investment=400, Unit=1}
-        //};
-
         /// <summary>
         /// LIST FOR PORTFOLIO PAGE
         /// </summary>
-        public static List<Assets> _assets = new List<Assets>()
-        {
-            new Assets {AssetId=0, Name="Google", Investment=800, Unit=2}
-        };
+        public static List<Assets> _assets = new List<Assets>();
 
+        /// <summary>
+        /// GET ASSETS
+        /// </summary>
+        /// <returns></returns>
         public static List<Assets> GetAssets() => _assets;
 
         /// <summary>
-        /// TOTAL ASSETS VALUE
+        /// TOTAL ASSET VALUE
         /// </summary>
         /// <returns></returns>
         public static double GetSum()
@@ -37,26 +33,35 @@ namespace EquityX.Maui.ViewModels
         }
 
 
-        //will be used to display history of individual asset
-        //public static Assets GetAssetById(int assetId)
-        //{
-        //    var asset = _unique_assets.FirstOrDefault(x => x.AssetId == assetId);
+        /// <summary>
+        /// GET ASSET BY ID
+        /// </summary>
+        /// <param name="assetId"></param>
+        /// <returns></returns>
+        public static Assets GetAssetById(int assetId)
+        {
+            var asset = _assets.FirstOrDefault(x => x.AssetId == assetId);
 
-        //    if (asset != null)
-        //    {
-        //        return new Assets
-        //        {
-        //            AssetId = asset.AssetId,
-        //            Name = asset.Name,
-        //            Investment = asset.Investment,
-        //            Unit = asset.Unit
-        //        };
-        //    }
+            if (asset != null)
+            {
+                return new Assets
+                {
+                    AssetId = asset.AssetId,
+                    Name = asset.Name,
+                    Investment = asset.Investment,
+                    Unit = asset.Unit,
+                    Summary = asset.Summary
+                };
+            }
 
-        //    return null;
-        //}
+            return null;
+        }
 
-        // GET ASSET BY NAME
+        /// <summary>
+        /// GET ASSET BY NAME
+        /// </summary>
+        /// <param name="assetName"></param>
+        /// <returns></returns>
         public static Assets GetAssetByName(string assetName)
         {
             var asset = _assets.FirstOrDefault(x => x.Name == assetName);
@@ -68,7 +73,10 @@ namespace EquityX.Maui.ViewModels
                     AssetId = asset.AssetId,
                     Name = asset.Name,
                     Investment = asset.Investment,
-                    Unit = asset.Unit
+                    Unit = asset.Unit,
+                    // CHECK ?
+                    Summary = asset.Summary,
+
                 };
             }
 
@@ -85,21 +93,26 @@ namespace EquityX.Maui.ViewModels
             var existingAsset = _assets.FirstOrDefault(x => x.Name == asset.Name);
             if (existingAsset == null)
             {
+                // STOCK DOES NOT EXIST IN THE LIST
                 if (_assets.Count == 0)
-                { // LIST IS EMPTY
+                {
+                    // LIST IS EMPTY
                     asset.AssetId = 0;
                     _assets.Add(asset);
                 }
                 else
-                { // LIST IS NOT EMPTY
+                {
+                    // LIST IS NOT EMPTY
                     asset.AssetId = (_assets.Max(x => x.AssetId)) + 1;
                     _assets.Add(asset);
                 }
             }
             else
             {
+                // STOCK EXIST IN THE LIST
                 existingAsset.Investment += asset.Investment;
                 existingAsset.Unit += asset.Unit;
+                existingAsset.Summary.AddRange(asset.Summary);
             }
         }
 
@@ -121,7 +134,6 @@ namespace EquityX.Maui.ViewModels
             {
                 var totalAmount = stockUnit * stockPrice;
                 asset.Unit -= stockUnit;
-                // HOW TO DECREASE THE INVESTMENT ?
                 asset.Investment -= totalAmount;
             }
         }
