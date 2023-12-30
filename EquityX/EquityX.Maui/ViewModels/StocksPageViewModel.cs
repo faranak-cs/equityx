@@ -49,8 +49,7 @@ namespace EquityX.Maui.ViewModels
         public static string BuyStockByUnit(int stockUnit, int stockId)
         {
             // SHORTCUT
-            var _users = HomePageViewModel.GetUsers();
-            var user = _users.FirstOrDefault(x => x.Id == 0);
+            var user = HomePageViewModel.GetUserById(0);
 
             // GET THE STOCK SELECTED BY THE USER
             var stock = _stocks.FirstOrDefault(x => x.StockId == stockId);
@@ -62,7 +61,8 @@ namespace EquityX.Maui.ViewModels
                 // HOW CAN I ACCESS THE FUNDS? DEPENDENCY INJECTION SINGLETON
                 if (totalPrice <= user.Funds)
                 {
-                    user.Funds -= totalPrice;
+                    // UPDATE THE FUNDS
+                    HomePageViewModel.UpdateFunds(user.Id, totalPrice, "decrease");
 
                     // ADD THE STOCK INTO ASSETS
                     PortfolioPageViewModel.AddAsset(new Models.Assets
@@ -110,10 +110,10 @@ namespace EquityX.Maui.ViewModels
                     var money = stockPrice * stockUnit;
 
                     // SHORTCUT 
-                    // ADD MONEY TO USER FUNDS
-                    var _users = HomePageViewModel.GetUsers();
-                    var user = _users.FirstOrDefault(x => x.Id == 0);
-                    user.Funds += money;
+                    var user = HomePageViewModel.GetUserById(0);
+
+                    // UPDATE THE FUNDS
+                    HomePageViewModel.UpdateFunds(user.Id, money, "increase");
 
                     // REMOVE SELECTED STOCK FROM ASSETS
                     PortfolioPageViewModel.RemoveAsset(stockUnit, stockName, stockPrice);
