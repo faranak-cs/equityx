@@ -2,13 +2,13 @@
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
-             x:Class="EquityX.Maui.Views.Controls.StocksControl">
+             x:Class="EquityX.Maui.Views.Controls.CryptosControl">
     
     <VerticalStackLayout Spacing="20" Margin="20,20,20,20">
         <Frame Padding="10,2,10,2">
             <HorizontalStackLayout>
-                <Label Text="Stock:" WidthRequest="60" VerticalOptions="Center"></Label>
-                <Entry x:Name="entryStock"></Entry>
+                <Label Text="Crypto:" WidthRequest="60" VerticalOptions="Center"></Label>
+                <Entry x:Name="entryCrypto"></Entry>
             </HorizontalStackLayout>
         </Frame>
         
@@ -36,7 +36,7 @@
 
         <Grid ColumnDefinitions="*,*"
               ColumnSpacing="10">
-
+            
             <Button Grid.Column="0"
                     Clicked="btnConfirm_Clicked"
                     x:Name="btnConfirm"
@@ -55,7 +55,7 @@
                     HorizontalOptions="Center"
                     WidthRequest="100"/>
         </Grid>
-      
+        
     </VerticalStackLayout>
-    
+
 </ContentView>

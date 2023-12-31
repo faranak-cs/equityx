@@ -6,13 +6,31 @@
              Shell.TitleColor="#ffc600"
              Shell.BackgroundColor="Black">
 
+    <ContentPage.Resources>
+        <Style TargetType="Grid">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal" />
+                        <VisualState x:Name="Selected">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor"
+                                    Value="#ffc600" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+    </ContentPage.Resources>
+
     <Grid RowDefinitions="*"
           ColumnDefinitions="*"
           Padding="10">
 
         <CollectionView Grid.Row="1"                       
                         x:Name="listAssets"
-                        BackgroundColor="#f8f9fa"
+                        BackgroundColor="white"
                         SelectionMode="Single"
                         SelectionChanged="listAssets_SelectionChanged">
 

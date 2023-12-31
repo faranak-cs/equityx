@@ -2,7 +2,6 @@ using EquityX.Maui.ViewModels;
 using System.Collections.ObjectModel;
 
 namespace EquityX.Maui.Views;
-
 public partial class PurchaseHistory : ContentPage
 {
     public PurchaseHistory()
@@ -14,7 +13,7 @@ public partial class PurchaseHistory : ContentPage
     {
         base.OnAppearing();
         PortfolioPageViewModel.UpdateSummary();
-        var assets = new ObservableCollection<Models.Assets>(PortfolioPageViewModel.GetAssets());
+        var assets = new ObservableCollection<Models.Asset>(PortfolioPageViewModel.GetAssets());
         listAssets.ItemsSource = assets;
     }
 }

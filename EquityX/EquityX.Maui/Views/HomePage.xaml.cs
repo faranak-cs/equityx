@@ -2,8 +2,6 @@ using EquityX.Maui.ViewModels;
 using EquityX.Maui.Views.Funds;
 
 namespace EquityX.Maui.Views;
-
-
 public partial class HomePage : ContentPage
 {
     // CREATE OBJECT OF USER CLASS
@@ -21,24 +19,6 @@ public partial class HomePage : ContentPage
         AvailableFunds.Text = "$" + user.Funds.ToString();
     }
 
-
-    // LATER, THE SIGN UP PAGE WILL PASS THE ID OF THE USER
-    //public string UserId
-    //{
-    //    set
-    //    {
-    //        user = HomePageViewModel.GetUserById(0);
-    //        if (user != null)
-    //        {
-    //            // SET THE USER NAME
-    //            CurrentUser.Text = "Hi, " + user.Name;
-    //            // SET AVAILABLE FUNDS
-    //            AvailableFunds.Text = "$" + user.Funds.ToString();
-    //        }
-    //    }
-    //}
-
-
     // ADD BUTTON
     private async void btnAddFunds_Clicked(object sender, EventArgs e)
     {
@@ -51,7 +31,6 @@ public partial class HomePage : ContentPage
         await Shell.Current.GoToAsync($"{nameof(WithdrawFunds)}?id={User.Id}");
 
     }
-
 
     // GO TO PORTFOLIO PAGE
     private void imgPortfolio_Tapped(object sender, TappedEventArgs e)

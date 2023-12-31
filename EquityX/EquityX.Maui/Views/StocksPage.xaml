@@ -5,6 +5,7 @@
              Title="Stocks"
              Shell.TitleColor="#ffc600"
              Shell.BackgroundColor="Black">
+    
     <ContentPage.Resources>
         <Style TargetType="Grid">
             <Setter Property="VisualStateManager.VisualStateGroups">
@@ -27,12 +28,11 @@
           ColumnDefinitions="*"
           Padding="10">
 
-
         <CollectionView Grid.Row="0"
                         x:Name="listStocks"
                         BackgroundColor="White"
-                        SelectionMode="Single"
-                        >
+                        SelectionMode="Single">
+
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <Grid Padding="10">
@@ -52,36 +52,31 @@
             </CollectionView.ItemTemplate>
         </CollectionView>
 
-        <!--<Frame Grid.Row="1"
-               BorderColor="White"
-               BackgroundColor="#f8f9fa"
-               CornerRadius="20"
-               Padding="5">--> 
-            <Grid Grid.Row="1"
-                  ColumnDefinitions="*,*"
-                  ColumnSpacing="10"
-                  >
+        <Grid Grid.Row="1"
+              ColumnDefinitions="*,*"
+              ColumnSpacing="10">
 
-                <Button Grid.Column="0"
-                        Clicked="btnBuy_Clicked"
-                        x:Name="btnBuy"
-                        TextColor="Black"
-                        BackgroundColor="#73e2a7"
-                        Text="Buy"
-                        HorizontalOptions="Center"
-                        HeightRequest="50"
-                        WidthRequest="100"/>
+            <Button Grid.Column="0"
+                    Clicked="btnBuy_Clicked"
+                    x:Name="btnBuy"
+                    TextColor="Black"
+                    BackgroundColor="#73e2a7"
+                    Text="Buy"
+                    HorizontalOptions="Center"
+                    HeightRequest="50"
+                    WidthRequest="100"/>
 
-                <Button Grid.Column="1"
-                        Clicked="btnSell_Clicked"
-                        x:Name="btnSell"
-                        TextColor="Black"   
-                        BackgroundColor="#ef6f6c"
-                        Text="Sell"
-                        HorizontalOptions="Center"
-                        HeightRequest="50"
-                        WidthRequest="100"/>
-            </Grid>
-        <!--</Frame>-->
+            <Button Grid.Column="1"
+                    Clicked="btnSell_Clicked"
+                    x:Name="btnSell"
+                    TextColor="Black"   
+                    BackgroundColor="#ef6f6c"
+                    Text="Sell"
+                    HorizontalOptions="Center"
+                    HeightRequest="50"
+                    WidthRequest="100"/>
+        </Grid>
+        
     </Grid>
+    
 </ContentPage>

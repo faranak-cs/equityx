@@ -12,7 +12,7 @@ public partial class SellStock : ContentPage
         InitializeComponent();
     }
 
-    // CREATE "STOCKSID" PROPERTY TO GET ALL DETAILS
+    // CREATE "StockId" PROPERTY TO GET ALL DETAILS
     public string StockId
     {
         set
@@ -49,10 +49,9 @@ public partial class SellStock : ContentPage
         // STOCK IS NOT SOLD
         else
         {
-            DisplayAlert("Status", "Insufficient Units to Sell Stock", "OK");
+            DisplayAlert("Status", "Insufficient units to sell stock", "OK");
             Shell.Current.GoToAsync("..");
         }
-
     }
 
     // RETURN TO STOCKS PAGE ON CANCEL

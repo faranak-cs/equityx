@@ -26,7 +26,7 @@
 
         <CollectionView Grid.Row="1"                       
                         x:Name="listAssets"
-                        BackgroundColor="#f8f9fa"
+                        BackgroundColor="white"
                         SelectionMode="Single"
                         SelectionChanged="listAssets_SelectionChanged">
 

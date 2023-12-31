@@ -1,11 +1,11 @@
-namespace EquityX.Maui.Views.Stocks;
 using EquityX.Maui.ViewModels;
 
+namespace EquityX.Maui.Views.Stocks;
 
 [QueryProperty(nameof(StockId), "id")]
 public partial class BuyStock : ContentPage
 {
-    // CREATE OBJECT OF STOCKS CLASS
+    // CREATE OBJECT OF STOCK CLASS
     private Models.Stock stock;
     public BuyStock()
     {
@@ -25,7 +25,6 @@ public partial class BuyStock : ContentPage
                 stockCtrl.Price = stock.Price.ToString();
                 // STOCKCTRL UNIT DATA TYPE IS STRING
                 stockCtrl.Unit = 1.ToString();
-
             }
         }
     }
@@ -48,7 +47,7 @@ public partial class BuyStock : ContentPage
         // STOCK IS NOT BOUGHT
         else
         {
-            DisplayAlert("Status", "Insufficient Funds to Buy Stock", "OK");
+            DisplayAlert("Status", "Insufficient funds to buy stock", "OK");
             Shell.Current.GoToAsync("..");
         }
     }

@@ -1,27 +1,27 @@
 namespace EquityX.Maui.Views.Controls;
 
-public partial class StocksControl : ContentView
+public partial class CryptosControl : ContentView
 {
     public event EventHandler<string> OnError;
     public event EventHandler<EventArgs> OnConfirm;
     public event EventHandler<EventArgs> OnCancel;
 
-    public StocksControl()
+    public CryptosControl()
     {
         InitializeComponent();
     }
 
-    // STOCK NAME PROPERTY
-    public string Stock
+    // CRYPTO NAME PROPERTY
+    public string Crypto
     {
         get
         {
-            return entryStock.Text;
+            return entryCrypto.Text;
         }
-        set { entryStock.Text = value; }
+        set { entryCrypto.Text = value; }
     }
 
-    // STOCK PRICE PROPERTY
+    // CRYPTO PRICE PROPERTY
     public string Price
     {
         get
@@ -31,7 +31,7 @@ public partial class StocksControl : ContentView
         set { entryPrice.Text = value; }
     }
 
-    // STOCK UNIT PROPERTY
+    // CRYPTO UNIT PROPERTY
     public string Unit
     {
         get

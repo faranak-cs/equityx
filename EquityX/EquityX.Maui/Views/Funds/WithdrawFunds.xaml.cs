@@ -50,7 +50,7 @@ public partial class WithdrawFunds : ContentPage
         // AMOUNT IS NOT WITHDRAWN
         else
         {
-            DisplayAlert("Status", "Sorry, You can't withdraw at the moment", "OK");
+            DisplayAlert("Status", "Sorry you can't withdraw at the moment", "OK");
             Shell.Current.GoToAsync("..");
         }
     }

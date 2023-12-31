@@ -1,9 +1,7 @@
-namespace EquityX.Maui.Views;
-
 using EquityX.Maui.ViewModels;
 using System.Collections.ObjectModel;
 
-
+namespace EquityX.Maui.Views;
 public partial class PortfolioPage : ContentPage
 {
     public PortfolioPage()
@@ -14,7 +12,7 @@ public partial class PortfolioPage : ContentPage
     protected override void OnAppearing()
     {
         base.OnAppearing();
-        var assets = new ObservableCollection<Models.Assets>(PortfolioPageViewModel.GetAssets());
+        var assets = new ObservableCollection<Models.Asset>(PortfolioPageViewModel.GetAssets());
         listAssets.ItemsSource = assets;
         lblAsset.Text = "$" + PortfolioPageViewModel.GetSum().ToString();
     }

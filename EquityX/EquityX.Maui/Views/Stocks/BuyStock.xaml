@@ -12,5 +12,4 @@
                             OnConfirm="stockCtrl_OnConfirm"
                             OnError="stockCtrl_OnError" ></controls:StocksControl>
     
-    
 </ContentPage>

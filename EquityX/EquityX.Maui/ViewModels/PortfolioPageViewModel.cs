@@ -8,7 +8,7 @@ public static class PortfolioPageViewModel
     /// <summary>
     /// LIST FOR PORTFOLIO PAGE
     /// </summary>
-    public static List<Assets> _assets = new List<Assets>();
+    public static List<Asset> _assets = new List<Asset>();
 
     // FILE PATH "ASSETS.JSON"
     private static string path = StorageManager.GetFilePath("assets.json");
@@ -22,7 +22,7 @@ public static class PortfolioPageViewModel
     // LOAD DATA FROM FILE
     private static void LoadAssets()
     {
-        var Assets = StorageManager.LoadFromFile<List<Assets>>(path);
+        var Assets = StorageManager.LoadFromFile<List<Asset>>(path);
 
         if (Assets != null)
         {
@@ -34,7 +34,7 @@ public static class PortfolioPageViewModel
     /// GET ASSETS
     /// </summary>
     /// <returns></returns>
-    public static List<Assets> GetAssets()
+    public static List<Asset> GetAssets()
     {
         LoadAssets();
         return _assets;
@@ -85,14 +85,14 @@ public static class PortfolioPageViewModel
     /// </summary>
     /// <param name="assetId"></param>
     /// <returns></returns>
-    public static Assets GetAssetById(int assetId)
+    public static Asset GetAssetById(int assetId)
     {
         LoadAssets();
         var asset = _assets.FirstOrDefault(x => x.AssetId == assetId);
 
         if (asset != null)
         {
-            return new Assets
+            return new Asset
             {
                 AssetId = asset.AssetId,
                 Name = asset.Name,
@@ -110,14 +110,14 @@ public static class PortfolioPageViewModel
     /// </summary>
     /// <param name="assetName"></param>
     /// <returns></returns>
-    public static Assets GetAssetByName(string assetName)
+    public static Asset GetAssetByName(string assetName)
     {
         LoadAssets();
         var asset = _assets.FirstOrDefault(x => x.Name == assetName);
 
         if (asset != null)
         {
-            return new Assets
+            return new Asset
             {
                 AssetId = asset.AssetId,
                 Name = asset.Name,
@@ -136,7 +136,7 @@ public static class PortfolioPageViewModel
     /// THIS WILL HANDLE THE LOGIC TO ADD THE ASSET
     /// </summary>
     /// <param name="asset"></param>
-    public static void AddAsset(Assets asset)
+    public static void AddAsset(Asset asset)
     {
         LoadAssets();
 

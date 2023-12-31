@@ -12,7 +12,7 @@
 
         <CollectionView Grid.Row="0"                       
                         x:Name="listAssets"
-                        BackgroundColor="#f8f9fa"
+                        BackgroundColor="white"
                         SelectionMode="None">
 
             <CollectionView.ItemTemplate>
@@ -61,26 +61,11 @@
                                                Text="{Binding BuyPrice, StringFormat='Buy Price: ${0}'}"/>
 
                                     </Grid>
-                                    
-                                    <!--<StackLayout>
-                                        <HorizontalStackLayout>
-                                            <Label VerticalOptions="Center">
-                                                <Label.Text>
-                                                    <MultiBinding StringFormat="{}{0} units bought @ ${1}">
-                                                        <Binding Path="Unit" />
-                                                        <Binding Path="BuyPrice" />
-                                                    </MultiBinding>
-                                                </Label.Text>
-                                            </Label>
-                                        </HorizontalStackLayout>
-                                    </StackLayout>-->
                                 </DataTemplate>
                             </CollectionView.ItemTemplate>
                         </CollectionView>
-                        
-                        
+
                     </Grid>
-                    
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>

@@ -1,6 +1,6 @@
-﻿namespace EquityX.Maui.ViewModels
+﻿namespace EquityX.Maui.ViewModels;
+
+public static class MarketPageViewModel
 {
-    internal class MarketPageViewModel
-    {
-    }
+
 }

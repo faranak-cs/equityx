@@ -2,19 +2,36 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="EquityX.Maui.Views.CryptoPage"
-             Title="Crypto"
+             Title="Cryptocurrencies"
              Shell.TitleColor="#ffc600"
              Shell.BackgroundColor="Black">
 
-    <Grid RowDefinitions="*, 50"
+    <ContentPage.Resources>
+        <Style TargetType="Grid">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal" />
+                        <VisualState x:Name="Selected">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor"
+                                        Value="#ffc600" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+    </ContentPage.Resources>
+
+    <Grid RowDefinitions="5*, *"
           ColumnDefinitions="*"
           Padding="10">
 
         <CollectionView Grid.Row="0"
-                x:Name="listCryptos"
-                BackgroundColor="#f8f9fa"
-                SelectionMode="Single"
-                SelectionChanged="listCryptos_SelectionChanged">
+                        x:Name="listCryptos"
+                        BackgroundColor="White"
+                        SelectionMode="Single">
 
             <CollectionView.ItemTemplate>
                 <DataTemplate>
@@ -35,32 +52,31 @@
             </CollectionView.ItemTemplate>
         </CollectionView>
 
-        <!--<ListView Grid.Row="0"
-                  x:Name="listCryptos"
-                  BackgroundColor="#f8f9fa"
-                  ItemSelected="listCryptos_ItemSelected">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <TextCell Text="{Binding Path=Name}"
-                              Detail="{Binding Path=Price}">
-                    </TextCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
+        <Grid Grid.Row="1"
+              ColumnDefinitions="*,*"
+              ColumnSpacing="10">
 
-        </ListView>-->
+            <Button Grid.Column="0"
+                    Clicked="btnBuy_Clicked"
+                    x:Name="btnBuy"
+                    TextColor="Black"
+                    BackgroundColor="#73e2a7"
+                    Text="Buy"
+                    HorizontalOptions="Center"
+                    HeightRequest="50"
+                    WidthRequest="100"/>
 
-        <!--<Button x:Name="btnHome"
-                Grid.Row="1"
-                Text="Home"
-                Clicked="btnHome_Clicked"
-                BackgroundColor="#ffc600"
-                TextColor="Black"/>-->
+            <Button Grid.Column="1"
+                    Clicked="btnSell_Clicked"
+                    x:Name="btnSell"
+                    TextColor="Black"   
+                    BackgroundColor="#ef6f6c"
+                    Text="Sell"
+                    HorizontalOptions="Center"
+                    HeightRequest="50"
+                    WidthRequest="100"/>
+        </Grid>
 
     </Grid>
-
-
-
-
-
-
+    
 </ContentPage>

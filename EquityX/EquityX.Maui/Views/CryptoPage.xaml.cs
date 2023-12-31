@@ -1,15 +1,11 @@
-namespace EquityX.Maui.Views;
-
 using EquityX.Maui.Models;
 using EquityX.Maui.ViewModels;
+using EquityX.Maui.Views.Cryptos;
 using System.Collections.ObjectModel;
 
-
-
-
+namespace EquityX.Maui.Views;
 public partial class CryptoPage : ContentPage
 {
-
     public CryptoPage()
     {
         InitializeComponent();
@@ -18,40 +14,27 @@ public partial class CryptoPage : ContentPage
     protected override void OnAppearing()
     {
         base.OnAppearing();
-        var cryptos = new ObservableCollection<EquityX.Maui.Models.Crypto>(CryptoPageViewModel.GetCryptos());
+        var cryptos = new ObservableCollection<Crypto>(CryptoPageViewModel.GetCryptos());
         listCryptos.ItemsSource = cryptos;
-
     }
 
-    //private async void listCryptos_ItemSelected(object sender, SelectedItemChangedEventArgs e)
-    //{
-    //    if (listCryptos.SelectedItem != null)
-    //    {
-
-    //        //logic
-    //        await Shell.Current.GoToAsync($"{nameof(PortfolioPage)}?cryptoid={((Crypto)listCryptos.SelectedItem).CryptoId}");
-
-
-    //        /*DisplayAlert("Status", "OK", "X");*/
-    //    }
-
-    //}
-
-
-    private void btnHome_Clicked(object sender, EventArgs e)
-    {
-        Shell.Current.GoToAsync("..");
-    }
-
-    private async void listCryptos_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    // BUY BUTTON
+    private async void btnBuy_Clicked(object sender, EventArgs e)
     {
         if (listCryptos.SelectedItem != null)
         {
+            await Shell.Current.GoToAsync($"{nameof(BuyCrypto)}?id={((Crypto)listCryptos.SelectedItem).CryptoId}");
+            listCryptos.SelectedItem = null;
+        }
+    }
 
-            //logic
-            await Shell.Current.GoToAsync($"{nameof(PortfolioPage)}?cryptoid={((Crypto)listCryptos.SelectedItem).CryptoId}");
-
-
+    // SELL BUTTON
+    private async void btnSell_Clicked(object sender, EventArgs e)
+    {
+        if (listCryptos.SelectedItem != null)
+        {
+            await Shell.Current.GoToAsync($"{nameof(SellCrypto)}?id={((Crypto)listCryptos.SelectedItem).CryptoId}");
+            listCryptos.SelectedItem = null;
         }
     }
 }
