@@ -8,14 +8,14 @@
         <Frame Padding="10,2,10,2">
             <HorizontalStackLayout>
                 <Label Text="Stock:" WidthRequest="60" VerticalOptions="Center"></Label>
-                <Entry x:Name="entryStock"></Entry>
+                <Entry x:Name="entryStock" IsEnabled="False"></Entry>
             </HorizontalStackLayout>
         </Frame>
         
         <Frame Padding="10,2,10,2">
             <HorizontalStackLayout>
                 <Label Text="Price: $" WidthRequest="60" VerticalOptions="Center"></Label>
-                <Entry x:Name="entryPrice"></Entry>
+                <Entry x:Name="entryPrice" IsEnabled="False"></Entry>
             </HorizontalStackLayout>
         </Frame>
         

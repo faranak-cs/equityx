@@ -41,13 +41,35 @@ public partial class StocksControl : ContentView
         set { entryUnit.Text = value; }
     }
 
+    // VALIDATE ? SHOULD BE {1,2,3,4,5}
+    private bool IsValidEntryValue(string value)
+    {
+        if (double.TryParse(value, out double numericValue))
+        {
+            return numericValue >= 1 && numericValue <= 5 && numericValue % 1 == 0;
+        }
+        return false;
+    }
+
     private void btnConfirm_Clicked(object sender, EventArgs e)
     {
+        string input = entryUnit.Text;
+
+        // CHECK ? SHOULD BE >=1 AND <=5
         if (unitValidator.IsNotValid)
         {
             OnError?.Invoke(sender, "Please enter the unit between 1 and 5");
             return;
         }
+
+        // CHECK ? SHOULD BE {1,2,3,4,5}
+        if (!IsValidEntryValue(input))
+        {
+            OnError?.Invoke(sender, "Sorry fractional units are not available");
+            return;
+        }
+
+        // PASSED
         OnConfirm?.Invoke(sender, e);
     }
 

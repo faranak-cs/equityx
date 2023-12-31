@@ -47,7 +47,7 @@ public partial class FundsControl : ContentView
     {
         if (amountValidator.IsNotValid)
         {
-            OnError?.Invoke(sender, "Enter amount between 100 to 500");
+            OnError?.Invoke(sender, "Enter amount between 100 and 500");
             return;
         }
         OnConfirm?.Invoke(sender, e);
