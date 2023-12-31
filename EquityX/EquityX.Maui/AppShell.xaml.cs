@@ -1,7 +1,7 @@
 ﻿//namespace of Views folder
 using EquityX.Maui.Views;
 using EquityX.Maui.Views.Funds;
-using EquityX.Maui.Views.StockDetail;
+using EquityX.Maui.Views.Stocks;
 
 namespace EquityX.Maui
 {
@@ -24,7 +24,7 @@ namespace EquityX.Maui
             Routing.RegisterRoute(nameof(SellStock), typeof(SellStock));
             Routing.RegisterRoute(nameof(AddFunds), typeof(AddFunds));
             Routing.RegisterRoute(nameof(WithdrawFunds), typeof(WithdrawFunds));
-            Routing.RegisterRoute(nameof(IndividualSummary), typeof(IndividualSummary));
+            Routing.RegisterRoute(nameof(PurchaseHistory), typeof(PurchaseHistory));
 
         }
     }

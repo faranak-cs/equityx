@@ -2,7 +2,7 @@ namespace EquityX.Maui.Views;
 
 using EquityX.Maui.Models;
 using EquityX.Maui.ViewModels;
-using EquityX.Maui.Views.StockDetail;
+using EquityX.Maui.Views.Stocks;
 using System.Collections.ObjectModel;
 
 public partial class StocksPage : ContentPage
@@ -15,7 +15,7 @@ public partial class StocksPage : ContentPage
     protected override void OnAppearing()
     {
         base.OnAppearing();
-        var stocks = new ObservableCollection<Stocks>(StocksPageViewModel.GetStocks());
+        var stocks = new ObservableCollection<Stock>(StocksPageViewModel.GetStocks());
         listStocks.ItemsSource = stocks;
     }
 
@@ -25,7 +25,7 @@ public partial class StocksPage : ContentPage
         if (listStocks.SelectedItem != null)
         {
             // HOW CAN I PASS TWO PARAMETERS?
-            await Shell.Current.GoToAsync($"{nameof(BuyStock)}?id={((Stocks)listStocks.SelectedItem).StockId}");
+            await Shell.Current.GoToAsync($"{nameof(BuyStock)}?id={((Stock)listStocks.SelectedItem).StockId}");
             listStocks.SelectedItem = null;
         }
     }
@@ -36,7 +36,7 @@ public partial class StocksPage : ContentPage
 
         if (listStocks.SelectedItem != null)
         {
-            await Shell.Current.GoToAsync($"{nameof(SellStock)}?id={((Stocks)listStocks.SelectedItem).StockId}");
+            await Shell.Current.GoToAsync($"{nameof(SellStock)}?id={((Stock)listStocks.SelectedItem).StockId}");
             listStocks.SelectedItem = null;
         }
     }

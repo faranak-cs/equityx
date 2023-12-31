@@ -56,6 +56,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Views\PurchaseHistory.xaml.cs">
+	    <DependentUpon>PurchaseHistory.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Views\SignUpPage.xaml.cs">
 	    <DependentUpon>SignUpPage.xaml</DependentUpon>
 	  </Compile>
@@ -80,7 +83,7 @@
 	  <MauiXaml Update="Views\HomePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\IndividualSummary.xaml">
+	  <MauiXaml Update="Views\PurchaseHistory.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\MarketPage.xaml">
@@ -95,10 +98,10 @@
 	  <MauiXaml Update="Views\StocksPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\StockDetail\BuyStock.xaml">
+	  <MauiXaml Update="Views\Stocks\BuyStock.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\StockDetail\SellStock.xaml">
+	  <MauiXaml Update="Views\Stocks\SellStock.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\SummaryPage.xaml">

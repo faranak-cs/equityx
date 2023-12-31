@@ -3,9 +3,9 @@ using System.Collections.ObjectModel;
 
 namespace EquityX.Maui.Views;
 
-public partial class IndividualSummary : ContentPage
+public partial class PurchaseHistory : ContentPage
 {
-    public IndividualSummary()
+    public PurchaseHistory()
     {
         InitializeComponent();
     }
@@ -13,7 +13,7 @@ public partial class IndividualSummary : ContentPage
     protected override void OnAppearing()
     {
         base.OnAppearing();
-
+        PortfolioPageViewModel.UpdateSummary();
         var assets = new ObservableCollection<Models.Assets>(PortfolioPageViewModel.GetAssets());
         listAssets.ItemsSource = assets;
     }

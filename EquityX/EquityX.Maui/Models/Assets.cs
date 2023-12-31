@@ -7,13 +7,16 @@
         public double Investment { get; set; }
         public int Unit { get; set; }
 
-        public List<StockHistory> Summary { get; set; }
+        public List<PurchaseHistory> Summary { get; set; }
     }
 
-    public class StockHistory
+    public class PurchaseHistory
     {
         public int Unit { get; set; }
         public double BuyPrice { get; set; }
+        public double CurrentPrice { get; set; }
+        public double Difference { get; set; }
+
     }
 
 }

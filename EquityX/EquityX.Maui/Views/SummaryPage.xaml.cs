@@ -13,7 +13,6 @@ public partial class SummaryPage : ContentPage
     protected override void OnAppearing()
     {
         base.OnAppearing();
-
         var assets = new ObservableCollection<Models.Assets>(PortfolioPageViewModel.GetAssets());
         listAssets.ItemsSource = assets;
     }
@@ -22,7 +21,7 @@ public partial class SummaryPage : ContentPage
     {
         if (listAssets.SelectedItem != null)
         {
-            await Shell.Current.GoToAsync(nameof(IndividualSummary));
+            await Shell.Current.GoToAsync(nameof(PurchaseHistory));
             listAssets.SelectedItem = null;
         }
     }

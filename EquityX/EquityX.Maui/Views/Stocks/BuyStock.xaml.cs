@@ -1,4 +1,4 @@
-namespace EquityX.Maui.Views.StockDetail;
+namespace EquityX.Maui.Views.Stocks;
 using EquityX.Maui.ViewModels;
 
 
@@ -6,7 +6,7 @@ using EquityX.Maui.ViewModels;
 public partial class BuyStock : ContentPage
 {
     // CREATE OBJECT OF STOCKS CLASS
-    private Models.Stocks stock;
+    private Models.Stock stock;
     public BuyStock()
     {
         InitializeComponent();

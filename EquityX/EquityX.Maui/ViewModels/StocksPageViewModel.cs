@@ -5,31 +5,40 @@ namespace EquityX.Maui.ViewModels
     //static repo for mockups/fake data
     public static class StocksPageViewModel
     {
-        public static List<Stocks> _stocks = new List<Stocks>(){
-        new Stocks {StockId=0, Name="Microsoft", Price=300 },
-        new Stocks {StockId=1, Name="Apple", Price=350},
-        new Stocks {StockId=2, Name="Tesla", Price=150 },
-        new Stocks {StockId=3, Name="Google", Price=400 },
-        new Stocks {StockId=4, Name="Systems", Price=370.5 },
-        new Stocks {StockId=5, Name="NetSol", Price=290.75},
-        new Stocks {StockId=6, Name="SadaPay", Price=150.20 },
-        new Stocks {StockId=7, Name="NayaPay", Price=100.48 },
-        new Stocks {StockId=8, Name="Amazon", Price=400 },
-        new Stocks {StockId=9, Name="Walmart", Price=370.5 },
-        new Stocks {StockId=10, Name="MasterCard", Price=290.75},
-        new Stocks {StockId=11, Name="Visa", Price=150.20 },
-        new Stocks {StockId=12, Name="Oracle", Price=100.48 },
+        public static List<Stock> _stocks = new List<Stock>(){
+        new Stock {StockId=0, Name="Microsoft", Price=300 },
+        new Stock {StockId=1, Name="Apple", Price=350},
+        new Stock {StockId=2, Name="Tesla", Price=150 },
+        new Stock {StockId=3, Name="Google", Price=400 },
+        new Stock {StockId=4, Name="Systems", Price=370.5 },
+        new Stock {StockId=5, Name="NetSol", Price=290.75},
+        new Stock {StockId=6, Name="SadaPay", Price=150.20 },
+        new Stock {StockId=7, Name="NayaPay", Price=100.48 },
+        new Stock {StockId=8, Name="Amazon", Price=400 },
+        new Stock {StockId=9, Name="Walmart", Price=370.5 },
+        new Stock {StockId=10, Name="MasterCard", Price=290.75},
+        new Stock {StockId=11, Name="Visa", Price=150.20 },
+        new Stock {StockId=12, Name="Oracle", Price=100.48 },
         };
 
-        public static List<Stocks> GetStocks() => _stocks;
+        /// <summary>
+        /// LIST
+        /// </summary>
+        /// <returns></returns>
+        public static List<Stock> GetStocks() => _stocks;
 
-        public static Stocks GetStockById(int stockid)
+        /// <summary>
+        /// GET STOCK BY ID 
+        /// </summary>
+        /// <param name="stockid"></param>
+        /// <returns></returns>
+        public static Stock GetStockById(int stockid)
         {
             var stock = _stocks.FirstOrDefault(x => x.StockId == stockid);
 
             if (stock != null)
             {
-                return new Stocks
+                return new Stock
                 {
                     StockId = stock.StockId,
                     Name = stock.Name,
@@ -38,6 +47,22 @@ namespace EquityX.Maui.ViewModels
 
             }
             return null;
+        }
+
+        /// <summary>
+        /// GET STOCK PRICE BY NAME
+        /// </summary>
+        /// <param name="stockName"></param>
+        /// <returns></returns>
+        public static double GetStockPriceByName(string stockName)
+        {
+            var stock = _stocks.FirstOrDefault(x => x.Name == stockName);
+
+            if (stock != null)
+            {
+                return stock.Price;
+            }
+            return 0;
         }
 
         /// <summary>
@@ -70,9 +95,9 @@ namespace EquityX.Maui.ViewModels
                         Unit = stockUnit,
                         Name = stock.Name,
                         Investment = totalPrice,
-                        Summary = new List<StockHistory>
+                        Summary = new List<PurchaseHistory>
                         {
-                            new StockHistory { Unit = stockUnit, BuyPrice = stock.Price }
+                            new PurchaseHistory { Unit = stockUnit, BuyPrice = stock.Price }
                         }
                     });
 

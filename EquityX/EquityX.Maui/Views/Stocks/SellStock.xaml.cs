@@ -1,12 +1,12 @@
 using EquityX.Maui.ViewModels;
 
-namespace EquityX.Maui.Views.StockDetail;
+namespace EquityX.Maui.Views.Stocks;
 
 [QueryProperty(nameof(StockId), "id")]
 public partial class SellStock : ContentPage
 {
     // CREATE OBJECT OF STOCKS CLASS
-    private Models.Stocks stock;
+    private Models.Stock stock;
     public SellStock()
     {
         InitializeComponent();

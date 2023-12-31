@@ -1,6 +1,6 @@
 ﻿namespace EquityX.Maui.Models
 {
-    public class Stocks
+    public class Stock
     {
         public int StockId { get; set; }
         public string Name { get; set; }

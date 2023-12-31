@@ -3,8 +3,6 @@ using EquityX.Maui.Models;
 
 namespace EquityX.Maui.ViewModels;
 
-
-//static repo for mockups/fake data
 public static class PortfolioPageViewModel
 {
     /// <summary>
@@ -39,7 +37,6 @@ public static class PortfolioPageViewModel
     public static List<Assets> GetAssets()
     {
         LoadAssets();
-
         return _assets;
     }
 
@@ -54,10 +51,32 @@ public static class PortfolioPageViewModel
         double sum = 0;
         foreach (var asset in _assets)
         {
-            sum = sum + asset.Investment;
+            sum += asset.Investment;
 
         }
         return sum;
+    }
+
+    /// <summary>
+    /// UPDATE SUMMARY
+    /// </summary>
+    public static void UpdateSummary()
+    {
+        LoadAssets();
+
+        foreach (var asset in _assets)
+        {
+            var stockCurrentPrice = StocksPageViewModel.GetStockPriceByName(asset.Name);
+            foreach (var purchase in asset.Summary)
+            {
+                double totalBuyPrice = purchase.Unit * purchase.BuyPrice;
+                double totalCurrentPrice = purchase.Unit * stockCurrentPrice;
+                purchase.Difference = totalCurrentPrice - totalBuyPrice;
+                purchase.CurrentPrice = stockCurrentPrice;
+            }
+        }
+
+        StoreAssets();
     }
 
 
@@ -120,7 +139,6 @@ public static class PortfolioPageViewModel
     public static void AddAsset(Assets asset)
     {
         LoadAssets();
-
 
         // PORTFOLIO PAGE
         var existingAsset = _assets.FirstOrDefault(x => x.Name == asset.Name);

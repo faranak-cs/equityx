@@ -2,8 +2,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:controls="clr-namespace:EquityX.Maui.Views.Controls"
-             x:Class="EquityX.Maui.Views.StockDetail.SellStock"
-             Title="Sell Stock"
+             x:Class="EquityX.Maui.Views.Stocks.BuyStock"
+             Title="Buy Stock"
              Shell.TitleColor="#ffc600"
              Shell.BackgroundColor="Black">
 
@@ -11,5 +11,6 @@
                             OnCancel="stockCtrl_OnCancel"
                             OnConfirm="stockCtrl_OnConfirm"
                             OnError="stockCtrl_OnError" ></controls:StocksControl>
-
+    
+    
 </ContentPage>
