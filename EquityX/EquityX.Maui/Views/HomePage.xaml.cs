@@ -87,5 +87,4 @@ public partial class HomePage : ContentPage
 
         Shell.Current.GoToAsync(nameof(MarketPage));
     }
-
 }

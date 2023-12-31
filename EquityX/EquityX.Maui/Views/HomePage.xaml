@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sf="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
              x:Class="EquityX.Maui.Views.HomePage"
              Title="Home"
              Shell.TitleColor="#ffc600"
              Shell.BackgroundColor="Black"
              BackgroundColor="White">
-
 
     <Grid RowDefinitions="0.25*,1.5*,3*"
           ColumnDefinitions="*,*"
@@ -50,13 +50,11 @@
                         x:Name="btnWithdrawFunds"
                         Clicked="btnWithdrawFunds_Clicked"  
                         TextColor="Black"            
-                        BackgroundColor="#ebebeb"
+                        BackgroundColor="#ffc600"
                         Text="Withdraw"
                         HorizontalOptions="Center"
                         WidthRequest="100"
                         />
-
-
             </Grid>
 
         </Frame>
@@ -69,26 +67,24 @@
               RowSpacing="10"
               ColumnSpacing="10">
 
-            <Frame Grid.Row="0"
-                   Grid.Column="0"
-                   BorderColor="White"
-                   BackgroundColor="#f8f9fa"
-                   CornerRadius="20"
-                   Padding="10"
-                   >
-
-                <VerticalStackLayout>
-                    <Label Text="Portfolio" HorizontalOptions="Center"/>
-
-                    <Image Source="portfolio.png" HorizontalOptions="Center">
-                        <Image.GestureRecognizers>
-                            <TapGestureRecognizer
+            <sf:SfEffectsView>
+                <Frame Grid.Row="0"
+                       Grid.Column="0"
+                       BorderColor="White"
+                       BackgroundColor="#f8f9fa"
+                       CornerRadius="20"
+                       Padding="10">
+                    <VerticalStackLayout>
+                        <Label Text="Portfolio" HorizontalOptions="Center"/>
+                        <Image Source="portfolio.png" HorizontalOptions="Center">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer
                                 Tapped="imgPortfolio_Tapped" NumberOfTapsRequired="1"/>
-                        </Image.GestureRecognizers>
-                        
-                    </Image>
-                </VerticalStackLayout>
-            </Frame>
+                            </Image.GestureRecognizers>
+                        </Image>
+                    </VerticalStackLayout>
+                </Frame>
+            </sf:SfEffectsView>
 
             <Frame Grid.Row="0"
                    Grid.Column="1"
@@ -105,7 +101,6 @@
                                 NumberOfTapsRequired="1"/>
                         </Image.GestureRecognizers>
                     </Image>
-                  
                 </VerticalStackLayout>
             </Frame>
 

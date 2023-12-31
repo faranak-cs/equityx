@@ -15,7 +15,7 @@ public partial class StocksPage : ContentPage
     protected override void OnAppearing()
     {
         base.OnAppearing();
-        var stocks = new ObservableCollection<EquityX.Maui.Models.Stocks>(StocksPageViewModel.GetStocks());
+        var stocks = new ObservableCollection<Stocks>(StocksPageViewModel.GetStocks());
         listStocks.ItemsSource = stocks;
     }
 
