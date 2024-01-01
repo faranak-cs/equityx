@@ -14,6 +14,7 @@ public partial class StocksPage : ContentPage
     protected override void OnAppearing()
     {
         base.OnAppearing();
+        //await StocksPageViewModel.InitiateRestCall();
         var stocks = new ObservableCollection<Stock>(StocksPageViewModel.GetStocks());
         listStocks.ItemsSource = stocks;
     }

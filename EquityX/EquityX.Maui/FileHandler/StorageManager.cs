@@ -1,7 +1,6 @@
 ﻿using System.Text.Json;
 
 namespace EquityX.Maui.FileHandler;
-
 public class StorageManager
 {
     /// <summary>

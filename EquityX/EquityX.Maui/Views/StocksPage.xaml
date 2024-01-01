@@ -41,7 +41,7 @@
                             <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
 
-                        <Label Text="{Binding Name}"
+                        <Label Text="{Binding Symbol}"
                                FontAttributes="Bold"
                                FontSize="16"/>
                         <Label Text="{Binding Price}"

@@ -1,29 +1,44 @@
-﻿using EquityX.Maui.Models;
+﻿using EquityX.Maui.DataSource;
+using EquityX.Maui.FileHandler;
+using EquityX.Maui.Models;
 
 namespace EquityX.Maui.ViewModels;
-
-//static repo for mockups/fake data
 public static class StocksPageViewModel
 {
-    public static List<Stock> _stocks = new List<Stock>()
+    // USED TO CALL FUNCTION "GetRestData"
+    private static RESTManager restManager = new RESTManager();
+
+    // LIST OF STOCKS
+    public static List<Stock> _stocks;
+
+    // FILE PATH "STOCKS.JSON"
+    private static string path = StorageManager.GetFilePath("stocks.json");
+
+    // THIS WILL BE CALLED AS SOON AS THE USER HITS STOCKS PAGE
+    public static async Task InitiateRestCall()
     {
-        new Stock {StockId=0, Name="Microsoft", Price=300 },
-        new Stock {StockId=1, Name="Apple", Price=350},
-        new Stock {StockId=2, Name="Tesla", Price=150 },
-        new Stock {StockId=3, Name="Google", Price=400 },
-        new Stock {StockId=4, Name="Systems", Price=370.5 },
-        new Stock {StockId=5, Name="NetSol", Price=290.75},
-        new Stock {StockId=6, Name="SadaPay", Price=150.20 },
-        new Stock {StockId=7, Name="NayaPay", Price=100.48 },
-        new Stock {StockId=8, Name="Amazon", Price=400 },
-        new Stock {StockId=9, Name="Walmart", Price=370.5 },
-        new Stock {StockId=10, Name="MasterCard", Price=290.75},
-        new Stock {StockId=11, Name="Visa", Price=150.20 },
-        new Stock {StockId=12, Name="Oracle", Price=100.48 }
-    };
+        // PERFORM TWO FUNCTIONS
+        // 1. REST CALL
+        // 2. STORE DATA INTO FILE
+        await restManager.GetRestData(path);
+
+        // LOAD DATA FROM FILE
+        var Stocks = StorageManager.LoadFromFile<List<Stock>>(path);
+
+        if (Stocks != null)
+        {
+            _stocks = Stocks;
+        }
+    }
+
+    // CONSTRUCTOR
+    static StocksPageViewModel()
+    {
+        Task task = InitiateRestCall();
+    }
 
     /// <summary>
-    /// LIST
+    /// GET LIST
     /// </summary>
     /// <returns></returns>
     public static List<Stock> GetStocks() => _stocks;
