@@ -1,3 +1,6 @@
+// Author: Faran Ahmad Khan
+// Author Email: L00179451@atu.ie
+
 using EquityX.Maui.ViewModels;
 using EquityX.Maui.Views.Funds;
 
@@ -17,6 +20,7 @@ public partial class HomePage : ContentPage
         var user = HomePageViewModel.GetUserById(User.Id);
         CurrentUser.Text = "Hi, " + user.Name;
         AvailableFunds.Text = "$" + user.Funds.ToString();
+        TotalSum.Text = PortfolioPageViewModel.GetTotalSum().ToString();
     }
 
     // ADD BUTTON

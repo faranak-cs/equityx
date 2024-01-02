@@ -1,4 +1,7 @@
-﻿using System.Text.Json;
+﻿// Author: Faran Ahmad Khan
+// Author Email: L00179451@atu.ie
+
+using System.Text.Json;
 
 namespace EquityX.Maui.FileHandler;
 public class StorageManager

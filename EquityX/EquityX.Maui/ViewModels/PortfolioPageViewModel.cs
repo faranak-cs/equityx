@@ -1,4 +1,7 @@
-﻿using EquityX.Maui.FileHandler;
+﻿// Author: Faran Ahmad Khan
+// Author Email: L00179451@atu.ie
+
+using EquityX.Maui.FileHandler;
 using EquityX.Maui.Models;
 
 namespace EquityX.Maui.ViewModels;
@@ -54,7 +57,23 @@ public static class PortfolioPageViewModel
             sum += asset.Investment;
 
         }
+
         return sum;
+    }
+
+    /// <summary>
+    /// FUNDS + TOTAL ASSET VALUE
+    /// </summary>
+    /// <returns></returns>
+    public static double GetTotalSum()
+    {
+        // GET ASSET SUM
+        var assetSum = GetSum();
+        // GET USER
+        var user = HomePageViewModel.GetUserById(0);
+        var totalSum = assetSum + user.Funds;
+
+        return totalSum;
     }
 
     /// <summary>
@@ -66,19 +85,38 @@ public static class PortfolioPageViewModel
 
         foreach (var asset in _assets)
         {
-            var stockCurrentPrice = StocksPageViewModel.GetStockPriceByName(asset.Name);
-
-            // SUMMARY OF AVAILABLE ASSETS
-            var totalAssetCurrentPrice = asset.Unit * stockCurrentPrice;
-            asset.TotalDifference = totalAssetCurrentPrice - asset.Investment;
-
-            // SUMMARY OF ALL PURCHASED ASSETS
-            foreach (var purchase in asset.Summary)
+            if (asset.AssetType == "stock")
             {
-                var totalBuyPrice = purchase.Unit * purchase.BuyPrice;
-                var totalCurrentPrice = purchase.Unit * stockCurrentPrice;
-                purchase.Difference = totalCurrentPrice - totalBuyPrice;
-                purchase.CurrentPrice = stockCurrentPrice;
+                var stockCurrentPrice = StocksPageViewModel.GetStockPriceByName(asset.Name);
+                // SUMMARY OF AVAILABLE ASSETS
+                var totalAssetCurrentPrice = asset.Unit * stockCurrentPrice;
+                asset.TotalDifference = totalAssetCurrentPrice - asset.Investment;
+
+                // SUMMARY OF ALL PURCHASED ASSETS
+                foreach (var purchase in asset.Summary)
+                {
+                    var totalBuyPrice = purchase.Unit * purchase.BuyPrice;
+                    var totalCurrentPrice = purchase.Unit * stockCurrentPrice;
+                    purchase.Difference = totalCurrentPrice - totalBuyPrice;
+                    purchase.CurrentPrice = stockCurrentPrice;
+                }
+            }
+
+            else if (asset.AssetType == "crypto")
+            {
+                var cryptoCurrentPrice = CryptoPageViewModel.GetCryptoPriceByName(asset.Name);
+                // SUMMARY OF AVAILABLE ASSETS
+                var totalAssetCurrentPrice = asset.Unit * cryptoCurrentPrice;
+                asset.TotalDifference = totalAssetCurrentPrice - asset.Investment;
+
+                // SUMMARY OF ALL PURCHASED ASSETS
+                foreach (var purchase in asset.Summary)
+                {
+                    var totalBuyPrice = purchase.Unit * purchase.BuyPrice;
+                    var totalCurrentPrice = purchase.Unit * cryptoCurrentPrice;
+                    purchase.Difference = totalCurrentPrice - totalBuyPrice;
+                    purchase.CurrentPrice = cryptoCurrentPrice;
+                }
             }
         }
 
@@ -129,7 +167,6 @@ public static class PortfolioPageViewModel
                 Name = asset.Name,
                 Investment = asset.Investment,
                 Unit = asset.Unit,
-                // CHECK ?
                 Summary = asset.Summary,
 
             };

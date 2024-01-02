@@ -1,3 +1,6 @@
+// Author: Faran Ahmad Khan
+// Author Email: L00179451@atu.ie
+
 using EquityX.Maui.ViewModels;
 
 namespace EquityX.Maui.Views.Cryptos;
@@ -22,7 +25,7 @@ public partial class SellCrypto : ContentPage
             {
                 cryptoCtrl.Crypto = crypto.Name;
                 // CRYPTOCTRL PRICE DATA TYPE IS STRING
-                cryptoCtrl.Price = crypto.Price.ToString();
+                cryptoCtrl.Price = crypto.MarketPrice.ToString();
                 // CRYPTOCTRL UNIT DATA TYPE IS STRING
                 cryptoCtrl.Unit = 1.ToString();
             }
@@ -35,7 +38,7 @@ public partial class SellCrypto : ContentPage
         int cryptoUnit = int.Parse(cryptoCtrl.Unit);
 
         // PASS CRYPTO UNIT AND CRYPTO ID TO CRYPTO VIEW MODEL FUNCTION
-        string response = CryptoPageViewModel.SellCryptoByUnit(cryptoUnit, crypto.Price, crypto.Name);
+        string response = CryptoPageViewModel.SellCryptoByUnit(cryptoUnit, crypto.MarketPrice, crypto.Name);
 
         // CRYPTO IS SOLD
         if (response == "y")

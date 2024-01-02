@@ -5,11 +5,97 @@
              Title="Market"
              Shell.TitleColor="#ffc600"
              Shell.BackgroundColor="Black">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-        <Button Text="goback" Clicked="Button_Clicked"/>
-    </VerticalStackLayout>
+
+    <Grid RowDefinitions="50,*,*"
+          Padding="10">
+
+        <Grid Grid.Row="0"
+              ColumnDefinitions="*,*,*,*,*">
+            <Label Grid.Column="0"
+                   Text="Symbol"/>
+            <Label Grid.Column="1"
+                   Text="Open"/>
+            <Label Grid.Column="2"
+                   Text="High"/>
+            <Label Grid.Column="3"
+                   Text="Low"/>
+            <Label Grid.Column="4"
+                   Text="Close"/>
+        </Grid>
+
+        <CollectionView x:Name="listStocks"
+                        BackgroundColor="White"
+                        SelectionMode="None"
+                        Grid.Row="1">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid RowDefinitions="*"
+                          ColumnDefinitions="*,*,*,*,*"
+                          ColumnSpacing="10">
+
+                        <Label Text="{Binding Symbol}"
+                               FontSize="16"
+                               FontAttributes="Bold"
+                               Grid.Column="0"
+                               Grid.Row="0"/>
+                        <Label Text="{Binding Open}"
+                               TextColor="Gray"
+                               Grid.Column="1"
+                               Grid.Row="0"/>
+                        <Label Text="{Binding High}"
+                               TextColor="Gray"
+                               Grid.Row="0"
+                               Grid.Column="2"/>
+                        <Label Text="{Binding Low}"
+                               TextColor="Gray"
+                               Grid.Row="0"
+                               Grid.Column="3"/>
+                        <Label Text="{Binding Close}"
+                               TextColor="Gray"
+                               Grid.Row="0"
+                               Grid.Column="4"/>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <CollectionView x:Name="listCrypto"
+                        BackgroundColor="White"
+                        SelectionMode="None"
+                        Grid.Row="2">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid RowDefinitions="*"
+                          ColumnDefinitions="*,*,*,*,*"
+                          ColumnSpacing="10">
+
+                        <Label Text="{Binding FromCurrency}"
+                               FontSize="16"
+                               FontAttributes="Bold"
+                               Grid.Column="0"
+                               Grid.Row="0"/>
+                        <Label Text="{Binding Open}"
+                               TextColor="Gray"
+                               Grid.Column="1"
+                               Grid.Row="0"/>
+                        <Label Text="{Binding High}"
+                               TextColor="Gray"
+                               Grid.Row="0"
+                               Grid.Column="2"/>
+                        <Label Text="{Binding Low}"
+                               TextColor="Gray"
+                               Grid.Row="0"
+                               Grid.Column="3"/>
+                        <Label Text="{Binding Close}"
+                               TextColor="Gray"
+                               Grid.Row="0"
+                               Grid.Column="4"/>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+
+    </Grid>
+
 </ContentPage>

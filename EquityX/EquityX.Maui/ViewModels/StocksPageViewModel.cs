@@ -1,4 +1,7 @@
-﻿using EquityX.Maui.FileHandler;
+﻿// Author: Faran Ahmad Khan
+// Author Email: L00179451@atu.ie
+
+using EquityX.Maui.FileHandler;
 using EquityX.Maui.Models;
 
 namespace EquityX.Maui.ViewModels;
@@ -78,7 +81,7 @@ public static class StocksPageViewModel
     /// <returns></returns>
     public static string BuyStockByUnit(int stockUnit, int stockId)
     {
-        // SHORTCUT
+        // GET USER
         var user = HomePageViewModel.GetUserById(0);
 
         // GET THE STOCK SELECTED BY THE USER
@@ -140,7 +143,7 @@ public static class StocksPageViewModel
             {
                 var money = stockPrice * stockUnit;
 
-                // SHORTCUT 
+                // GET USER
                 var user = HomePageViewModel.GetUserById(0);
 
                 // UPDATE THE FUNDS

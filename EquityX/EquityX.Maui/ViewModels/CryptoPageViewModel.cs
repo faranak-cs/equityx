@@ -1,23 +1,38 @@
-﻿using EquityX.Maui.Models;
+﻿// Author: Faran Ahmad Khan
+// Author Email: L00179451@atu.ie
+
+using EquityX.Maui.FileHandler;
+using EquityX.Maui.Models;
 
 namespace EquityX.Maui.ViewModels;
-
-//static repo for mockups/fake data
 public static class CryptoPageViewModel
 {
-    public static List<Crypto> _cryptos = new List<Crypto>()
+    // LIST OF CRYPTOCURRENCIES
+    public static List<Crypto> _cryptos = new List<Crypto>();
+
+    // FILE PATH "CRYPTOS.JSON"
+    private static string path = StorageManager.GetFilePath("cryptos.json");
+
+    // LOAD DATA FROM FILE
+    private static void LoadsCryptos()
     {
-        new Crypto {CryptoId=0, Name="Bitcoin", Price=30000},
-        new Crypto {CryptoId=1, Name="Ethereum", Price=1500},
-        new Crypto {CryptoId=2, Name="Ripple", Price=100},
-        new Crypto {CryptoId=3, Name="DogeCoin", Price=50}
-    };
+        var Cryptos = StorageManager.LoadFromFile<List<Crypto>>(path);
+
+        if (Cryptos != null)
+        {
+            _cryptos = Cryptos;
+        }
+    }
 
     /// <summary>
-    /// LIST
+    /// GET CRYPTOCURRENCIES LIST
     /// </summary>
     /// <returns></returns>
-    public static List<Crypto> GetCryptos() => _cryptos;
+    public static List<Crypto> GetCryptos()
+    {
+        LoadsCryptos();
+        return _cryptos;
+    }
 
     /// <summary>
     /// GET CRYPTO BY ID
@@ -34,7 +49,7 @@ public static class CryptoPageViewModel
             {
                 CryptoId = crypto.CryptoId,
                 Name = crypto.Name,
-                Price = crypto.Price,
+                MarketPrice = crypto.MarketPrice,
             };
         }
         return null;
@@ -47,11 +62,12 @@ public static class CryptoPageViewModel
     /// <returns></returns>
     public static double GetCryptoPriceByName(string cryptoName)
     {
+        LoadsCryptos();
         var crypto = _cryptos.FirstOrDefault(x => x.Name == cryptoName);
 
         if (crypto != null)
         {
-            return crypto.Price;
+            return crypto.MarketPrice;
         }
         return 0;
     }
@@ -64,7 +80,7 @@ public static class CryptoPageViewModel
     /// <returns></returns>
     public static string BuyCryptoByUnit(int cryptoUnit, int cryptoId)
     {
-        // SHORTCUT
+        // GET USER
         var user = HomePageViewModel.GetUserById(0);
 
         // GET THE CRYPTO SELECTED BY THE USER
@@ -72,9 +88,8 @@ public static class CryptoPageViewModel
 
         if (crypto != null)
         {
-            var totalPrice = cryptoUnit * crypto.Price;
+            var totalPrice = cryptoUnit * crypto.MarketPrice;
 
-            // HOW CAN I ACCESS THE FUNDS? DEPENDENCY INJECTION SINGLETON
             if (totalPrice <= user.Funds)
             {
                 // UPDATE THE FUNDS
@@ -86,9 +101,11 @@ public static class CryptoPageViewModel
                     Unit = cryptoUnit,
                     Name = crypto.Name,
                     Investment = totalPrice,
+                    AssetSymbol = crypto.Symbol,
+                    AssetType = "crypto",
                     Summary = new List<PurchaseHistory>
                     {
-                        new PurchaseHistory { Unit = cryptoUnit, BuyPrice = crypto.Price }
+                        new PurchaseHistory { Unit = cryptoUnit, BuyPrice = crypto.MarketPrice }
                     }
                 });
 
@@ -125,7 +142,7 @@ public static class CryptoPageViewModel
             {
                 var money = cryptoPrice * cryptoUnit;
 
-                // SHORTCUT 
+                // GET USER
                 var user = HomePageViewModel.GetUserById(0);
 
                 // UPDATE THE FUNDS

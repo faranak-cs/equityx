@@ -1,3 +1,6 @@
+// Author: Faran Ahmad Khan
+// Author Email: L00179451@atu.ie
+
 using EquityX.Maui.Models;
 using EquityX.Maui.ViewModels;
 using EquityX.Maui.Views.Cryptos;

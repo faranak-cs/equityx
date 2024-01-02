@@ -1,11 +1,14 @@
-﻿namespace EquityX.Maui.Models;
-public class QuoteResponse
+﻿// Author: Faran Ahmad Khan
+// Author Email: L00179451@atu.ie
+
+namespace EquityX.Maui.Models;
+public class StockQuoteResponse
 {
-    public List<Result> result { get; set; }
+    public List<StockResult> result { get; set; }
     public object error { get; set; }
 }
 
-public class Result
+public class StockResult
 {
     public string language { get; set; }
     public string region { get; set; }
@@ -81,7 +84,7 @@ public class Result
     public string symbol { get; set; }
 }
 
-public class Root
+public class StockRoot
 {
-    public QuoteResponse quoteResponse { get; set; }
+    public StockQuoteResponse quoteResponse { get; set; }
 }

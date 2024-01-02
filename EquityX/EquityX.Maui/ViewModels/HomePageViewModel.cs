@@ -1,4 +1,7 @@
-﻿using EquityX.Maui.FileHandler;
+﻿// Author: Faran Ahmad Khan
+// Author Email: L00179451@atu.ie
+
+using EquityX.Maui.FileHandler;
 using EquityX.Maui.Models;
 
 namespace EquityX.Maui.ViewModels;

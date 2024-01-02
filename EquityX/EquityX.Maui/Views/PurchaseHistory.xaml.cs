@@ -1,3 +1,6 @@
+// Author: Faran Ahmad Khan
+// Author Email: L00179451@atu.ie
+
 using EquityX.Maui.ViewModels;
 using System.Collections.ObjectModel;
 

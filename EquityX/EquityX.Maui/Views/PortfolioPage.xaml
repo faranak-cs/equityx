@@ -34,11 +34,19 @@
                     <Grid RowDefinitions="*,*"
                           ColumnDefinitions="2*,*,*"
                           Padding="10">
-                        <Label Text="{Binding AssetSymbol}"
-                               Grid.Column="0"
+                        
+                        <Label Grid.Column="0"
                                Grid.Row="0"
                                FontAttributes="Bold"
-                               FontSize="16"/>
+                               FontSize="16">
+                            <Label.Text>
+                                <MultiBinding StringFormat="{}{0} ({1})">
+                                    <Binding Path="AssetSymbol" />
+                                    <Binding Path="AssetType" />
+                                </MultiBinding>
+                            </Label.Text>
+                        </Label>
+
                         <Label Text="{Binding Name}"
                                Grid.Column="0"
                                Grid.Row="1"
