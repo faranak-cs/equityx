@@ -11,26 +11,22 @@
     <Grid RowDefinitions="*,*"
           ColumnDefinitions="*">
 
-        <Image
-            Grid.Row="0"
-            Grid.Column="0"
-            Source="logo.png"
-            HeightRequest="300"
-            HorizontalOptions="Center" />
+        <Image Grid.Row="0"
+               Grid.Column="0"
+               Source="logo.png"
+               HeightRequest="300"
+               HorizontalOptions="Center"/>
 
-        
-        <Button
-            x:Name="btnSignUp"
-            Clicked="btnSignUp_Clicked"
-            Grid.Column="0"
-            Grid.Row="1"
-            TextColor="Black"
-            BackgroundColor="#ffc600"
-            Text="Sign Up"
-            WidthRequest="200"
-            HorizontalOptions="Center"
-            VerticalOptions="Center"/>
-
+        <Button x:Name="btnSignUp"
+                Clicked="btnSignUp_Clicked"
+                Grid.Column="0"
+                Grid.Row="1"
+                TextColor="Black"
+                BackgroundColor="#ffc600"
+                Text="Sign Up"
+                WidthRequest="200"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"/>
 
     </Grid>
 </ContentPage>

@@ -42,7 +42,7 @@ public partial class HomePage : ContentPage
     // GO TO SUMMARY PAGE
     private void imgSummary_Tapped(object sender, TappedEventArgs e)
     {
-
+        PortfolioPageViewModel.UpdateSummary();
         Shell.Current.GoToAsync(nameof(SummaryPage));
     }
 

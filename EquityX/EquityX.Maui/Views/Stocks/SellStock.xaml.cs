@@ -22,7 +22,7 @@ public partial class SellStock : ContentPage
             {
                 stockCtrl.Stock = stock.Name;
                 // STOCKCTRL PRICE DATA TYPE IS STRING
-                stockCtrl.Price = stock.Price.ToString();
+                stockCtrl.Price = stock.MarketPrice.ToString();
                 // STOCKCTRL UNIT DATA TYPE IS STRING
                 stockCtrl.Unit = 1.ToString();
 
@@ -37,7 +37,7 @@ public partial class SellStock : ContentPage
         int stockUnit = int.Parse(stockCtrl.Unit);
 
         // PASS STOCK UNIT AND STOCK ID TO STOCKS VIEW MODEL FUNCTION
-        string response = StocksPageViewModel.SellStockByUnit(stockUnit, stock.Price, stock.Name);
+        string response = StocksPageViewModel.SellStockByUnit(stockUnit, stock.MarketPrice, stock.Name);
 
         // STOCK IS SOLD
         if (response == "y")

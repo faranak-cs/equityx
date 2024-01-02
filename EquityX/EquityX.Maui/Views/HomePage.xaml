@@ -8,6 +8,10 @@
              Shell.BackgroundColor="Black"
              BackgroundColor="White">
 
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior IsEnabled="False" IsVisible="False"/>
+    </Shell.BackButtonBehavior>
+
     <Grid RowDefinitions="0.25*,1.5*,3*"
           ColumnDefinitions="*,*"
           RowSpacing="10"

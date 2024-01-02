@@ -31,7 +31,7 @@ public static class PortfolioPageViewModel
     }
 
     /// <summary>
-    /// GET ASSETS
+    /// GET ASSETS LIST
     /// </summary>
     /// <returns></returns>
     public static List<Asset> GetAssets()
@@ -67,10 +67,16 @@ public static class PortfolioPageViewModel
         foreach (var asset in _assets)
         {
             var stockCurrentPrice = StocksPageViewModel.GetStockPriceByName(asset.Name);
+
+            // SUMMARY OF AVAILABLE ASSETS
+            var totalAssetCurrentPrice = asset.Unit * stockCurrentPrice;
+            asset.TotalDifference = totalAssetCurrentPrice - asset.Investment;
+
+            // SUMMARY OF ALL PURCHASED ASSETS
             foreach (var purchase in asset.Summary)
             {
-                double totalBuyPrice = purchase.Unit * purchase.BuyPrice;
-                double totalCurrentPrice = purchase.Unit * stockCurrentPrice;
+                var totalBuyPrice = purchase.Unit * purchase.BuyPrice;
+                var totalCurrentPrice = purchase.Unit * stockCurrentPrice;
                 purchase.Difference = totalCurrentPrice - totalBuyPrice;
                 purchase.CurrentPrice = stockCurrentPrice;
             }

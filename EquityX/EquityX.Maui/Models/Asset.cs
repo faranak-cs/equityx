@@ -6,6 +6,9 @@ public class Asset
     public string Name { get; set; }
     public double Investment { get; set; }
     public int Unit { get; set; }
+    public string AssetSymbol { get; set; }
+    public string AssetType { get; set; }
+    public double TotalDifference { get; set; }
     public List<PurchaseHistory> Summary { get; set; }
 }
 

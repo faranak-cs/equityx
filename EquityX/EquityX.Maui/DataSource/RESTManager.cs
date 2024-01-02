@@ -6,16 +6,19 @@ public class RESTManager
 {
     List<Stock> stocks = new List<Stock>();
 
+    // FILE PATH "STOCKS.JSON"
+    private static string filePath = StorageManager.GetFilePath("stocks.json");
+
     /// <summary>
-    /// STORE REST DATA INTO FILE
+    /// CALL REST API AND
+    /// STORE DATA INTO FILE
     /// </summary>
-    /// <param name="filePath"></param>
     /// <returns></returns>
-    public async Task GetRestData(string filePath)
+    public async Task GetRestData()
     {
         Root root = await REST.FetchStocksData();
 
-        if (stocks != null)
+        if (root != null)
         {
             int id = 0;
             foreach (var result in root.quoteResponse.result)
@@ -25,7 +28,8 @@ public class RESTManager
                     StockId = id,
                     Name = result.shortName,
                     Symbol = result.symbol,
-                    Price = result.regularMarketPrice
+                    MarketPrice = result.regularMarketPrice,
+                    MarketChangePercent = Math.Round(result.regularMarketChangePercent, 2)
                 };
                 stocks.Add(stock);
                 id++;
@@ -35,41 +39,48 @@ public class RESTManager
             //string delPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), filePath);
             //File.Delete(delPath);
 
-            // STORE NEW DATA INTO FILE
-            StorageManager.StoreToFile(filePath, stocks);
-        }
-        else
-        {
-            // IF NO INTERNET, PROVIDE MOCK DATA
-            stocks = GetMockData();
             // STORE DATA INTO FILE
             StorageManager.StoreToFile(filePath, stocks);
+        }
 
+        // IF NO INTERNET, PROVIDE MOCK DATA
+        else
+        {
+            // IF FILE IS EMPTY, PROVIDE MOCK DATA
+            if (!(StorageManager.IsFileEmpty(filePath)))
+            {
+                stocks = GetMockData();
+                // STORE DATA INTO FILE
+                StorageManager.StoreToFile(filePath, stocks);
+            }
+            else
+            {
+
+            }
+            {
+                // OTHERWISE, USER WILL GET THE CACHED DATA
+            }
         }
     }
 
     /// <summary>
-    /// MOCK DATA
+    /// MOCK DATA AS OF 02/01/2024
     /// </summary>
     /// <returns></returns>
     public List<Stock> GetMockData()
     {
         return new List<Stock>
         {
-            new Stock {StockId=0, Name="Microsoft", Price=300 },
-            new Stock {StockId=1, Name="Apple", Price=350},
-            new Stock {StockId=2, Name="Tesla", Price=150 },
-            new Stock {StockId=3, Name="Google", Price=400 },
-            new Stock {StockId=4, Name="Systems", Price=370.5 },
-            new Stock {StockId=5, Name="NetSol", Price=290.75},
-            new Stock {StockId=6, Name="SadaPay", Price=150.20 },
-            new Stock {StockId=7, Name="NayaPay", Price=100.48 },
-            new Stock {StockId=8, Name="Amazon", Price=400 },
-            new Stock {StockId=9, Name="Walmart", Price=370.5 },
-            new Stock {StockId=10, Name="MasterCard", Price=290.75},
-            new Stock {StockId=11, Name="Visa", Price=150.20 },
-            new Stock {StockId=12, Name="Oracle", Price=100.48 }
+            new Stock { StockId = 0, Name = "Microsoft Corporation", MarketPrice = 376.04, Symbol = "MSFT" },
+            new Stock { StockId = 1, Name = "Apple Inc.", MarketPrice = 192.53, Symbol = "AAPL" },
+            new Stock { StockId = 2, Name = "Alphabet Inc.", MarketPrice = 140.93, Symbol = "GOOG" },
+            new Stock { StockId = 3, Name = "Amazon.com, Inc.", MarketPrice = 151.94, Symbol = "AMZN" },
+            new Stock { StockId = 4, Name = "NVIDIA Corporation", MarketPrice = 495.22, Symbol = "NVDA" },
+            new Stock { StockId = 5, Name = "Meta Platforms, Inc.", MarketPrice = 353.96, Symbol = "META" },
+            new Stock { StockId = 6, Name = "Tesla, Inc.", MarketPrice = 248.48, Symbol = "TSLA" },
+            new Stock { StockId = 7, Name = "Oracle Corporation", MarketPrice = 105.43, Symbol = "ORCL" },
+            new Stock { StockId = 8, Name = "Intel Corporation", MarketPrice = 50.25, Symbol = "INTC" },
+            new Stock { StockId = 9, Name = "International Business Machines", MarketPrice = 163.55, Symbol = "IBM" }
         };
     }
-
 }

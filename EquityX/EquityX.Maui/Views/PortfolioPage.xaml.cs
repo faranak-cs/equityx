@@ -22,8 +22,4 @@ public partial class PortfolioPage : ContentPage
         Shell.Current.GoToAsync(nameof(HomePage));
     }
 
-    private void listAssets_SelectionChanged(object sender, SelectionChangedEventArgs e)
-    {
-        // LOGIC
-    }
 }

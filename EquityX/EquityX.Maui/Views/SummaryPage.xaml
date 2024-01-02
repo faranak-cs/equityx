@@ -37,28 +37,36 @@
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <Grid RowDefinitions="*,*"
-                          ColumnDefinitions="*,*,*"
+                          ColumnDefinitions="2*,*,*"
                           Padding="10">
 
-                        <Label Text="{Binding Name}"
+                        <Label Text="{Binding AssetSymbol}"
                                Grid.Column="0"
                                Grid.Row="0"
                                FontAttributes="Bold"
                                FontSize="16"/>
-                        <Label Text="{Binding Unit}"
+                        <Label Text="{Binding Name}"
                                Grid.Column="0"
                                Grid.Row="1"
                                TextColor="Gray"/>
-                        <Label Text="Current Price"
+                        <Label Text="Unit"
                                Grid.Column="1"
-                               Grid.RowSpan="2"
-                               VerticalOptions="Center"
+                               Grid.Row="0"
+                               HorizontalOptions="Start"/>
+                        <Label Text="{Binding Unit}"
+                               Grid.Column="1"
+                               Grid.Row="1"
+                               HorizontalOptions="Start"
                                TextColor="Gray"/>
-                        <Label Text="Profit and Loss" 
+                        <Label Text="Profit/Loss" 
                                Grid.Column="2"
-                               Grid.RowSpan="2"
-                               VerticalOptions="Center"
-                               TextColor="Gray"/>
+                               Grid.Row="0"
+                               HorizontalOptions="Start"/>
+                        <Label Text="{Binding TotalDifference, StringFormat='{0} USD'}"
+                               Grid.Column="2"
+                               Grid.Row="1"
+                               HorizontalOptions="Start"
+                               TextColor="Gray"/>       
                     </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>

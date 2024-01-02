@@ -47,8 +47,30 @@ public class StorageManager
         return default(T);
     }
 
+    /// <summary>
+    /// GET FILE PATH
+    /// </summary>
+    /// <param name="fileName"></param>
+    /// <returns></returns>
     public static string GetFilePath(string fileName)
     {
         return Path.Combine(FileSystem.AppDataDirectory, fileName);
+    }
+
+    /// <summary>
+    /// CHECK FILE EXIST OR NOT
+    /// </summary>
+    /// <param name="fileName"></param>
+    /// <returns></returns>
+    public static bool IsFileEmpty(string fileName)
+    {
+        if (File.Exists(fileName))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }

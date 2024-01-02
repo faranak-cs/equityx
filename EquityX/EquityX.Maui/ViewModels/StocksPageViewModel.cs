@@ -1,28 +1,18 @@
-﻿using EquityX.Maui.DataSource;
-using EquityX.Maui.FileHandler;
+﻿using EquityX.Maui.FileHandler;
 using EquityX.Maui.Models;
 
 namespace EquityX.Maui.ViewModels;
 public static class StocksPageViewModel
 {
-    // USED TO CALL FUNCTION "GetRestData"
-    private static RESTManager restManager = new RESTManager();
-
     // LIST OF STOCKS
-    public static List<Stock> _stocks;
+    public static List<Stock> _stocks = new List<Stock>();
 
     // FILE PATH "STOCKS.JSON"
     private static string path = StorageManager.GetFilePath("stocks.json");
 
-    // THIS WILL BE CALLED AS SOON AS THE USER HITS STOCKS PAGE
-    public static async Task InitiateRestCall()
+    // LOAD DATA FROM FILE
+    private static void LoadsStocks()
     {
-        // PERFORM TWO FUNCTIONS
-        // 1. REST CALL
-        // 2. STORE DATA INTO FILE
-        await restManager.GetRestData(path);
-
-        // LOAD DATA FROM FILE
         var Stocks = StorageManager.LoadFromFile<List<Stock>>(path);
 
         if (Stocks != null)
@@ -31,17 +21,15 @@ public static class StocksPageViewModel
         }
     }
 
-    // CONSTRUCTOR
-    static StocksPageViewModel()
-    {
-        Task task = InitiateRestCall();
-    }
-
     /// <summary>
-    /// GET LIST
+    /// GET STOCKS LIST
     /// </summary>
     /// <returns></returns>
-    public static List<Stock> GetStocks() => _stocks;
+    public static List<Stock> GetStocks()
+    {
+        LoadsStocks();
+        return _stocks;
+    }
 
     /// <summary>
     /// GET STOCK BY ID 
@@ -58,7 +46,7 @@ public static class StocksPageViewModel
             {
                 StockId = stock.StockId,
                 Name = stock.Name,
-                Price = stock.Price
+                MarketPrice = stock.MarketPrice
             };
 
         }
@@ -72,11 +60,12 @@ public static class StocksPageViewModel
     /// <returns></returns>
     public static double GetStockPriceByName(string stockName)
     {
+        LoadsStocks();
         var stock = _stocks.FirstOrDefault(x => x.Name == stockName);
 
         if (stock != null)
         {
-            return stock.Price;
+            return stock.MarketPrice;
         }
         return 0;
     }
@@ -97,9 +86,8 @@ public static class StocksPageViewModel
 
         if (stock != null)
         {
-            var totalPrice = stockUnit * stock.Price;
+            var totalPrice = stockUnit * stock.MarketPrice;
 
-            // HOW CAN I ACCESS THE FUNDS? DEPENDENCY INJECTION SINGLETON
             if (totalPrice <= user.Funds)
             {
                 // UPDATE THE FUNDS
@@ -111,9 +99,11 @@ public static class StocksPageViewModel
                     Unit = stockUnit,
                     Name = stock.Name,
                     Investment = totalPrice,
+                    AssetSymbol = stock.Symbol,
+                    AssetType = "stock",
                     Summary = new List<PurchaseHistory>
                     {
-                        new PurchaseHistory { Unit = stockUnit, BuyPrice = stock.Price }
+                        new PurchaseHistory { Unit = stockUnit, BuyPrice = stock.MarketPrice }
                     }
                 });
 

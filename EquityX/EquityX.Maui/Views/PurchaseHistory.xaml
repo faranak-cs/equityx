@@ -21,7 +21,7 @@
                           ColumnDefinitions="*"
                           Padding="10">
 
-                        <Label Text="{Binding Name}"
+                        <Label Text="{Binding AssetSymbol}"
                                    Grid.Column="0"
                                    Grid.Row="0"
                                    FontAttributes="Bold"
@@ -33,32 +33,41 @@
                                         ItemsSource="{Binding Summary}">
                             <CollectionView.ItemTemplate>
                                 <DataTemplate>
-                                    <Grid ColumnDefinitions="*,3*,3*"
+                                    <Grid ColumnDefinitions="*,*,*,*"
                                           RowDefinitions="*,*"
                                           Padding="10">
-                                        <Label Grid.RowSpan="2"
+                                        
+                                        <Label Text="Unit"
                                                Grid.Row="0"
-                                               VerticalOptions="Center"
-                                               HorizontalOptions="Center"
-                                               Text="{Binding Unit}"/>
-
-                                        <Label Grid.Row="0"
+                                               Grid.Column="0"/>
+                                        <Label Text="{Binding Unit}"
+                                               Grid.Row="1"
+                                               Grid.Column="0"
+                                               TextColor="Gray"/>
+                                        
+                                        <Label Text="Current"
+                                               Grid.Row="0"
+                                               Grid.Column="1"/>
+                                        <Label Text="{Binding CurrentPrice, StringFormat='${0}'}"
+                                               Grid.Row="1"
                                                Grid.Column="1"
-                                               VerticalOptions="Start"
-                                               HorizontalOptions="Center"
-                                               Text="{Binding CurrentPrice, StringFormat='Current Price: ${0}'}"/>
-
-                                        <Label Grid.RowSpan="2"
+                                               TextColor="Gray"/>
+                                        
+                                        <Label Text="Buy"
+                                               Grid.Row="0"
+                                               Grid.Column="2"/>
+                                        <Label Text="{Binding BuyPrice, StringFormat='${0}'}"
+                                               Grid.Row="1"
                                                Grid.Column="2"
-                                               VerticalOptions="Center"
-                                               HorizontalOptions="Center"
-                                               Text="{Binding Difference, StringFormat='Profit/Loss: ${0}'}"/>
+                                               TextColor="Gray"/>
 
-                                        <Label Grid.Row="1"
-                                               Grid.Column="1"
-                                               VerticalOptions="End"
-                                               HorizontalOptions="Center"
-                                               Text="{Binding BuyPrice, StringFormat='Buy Price: ${0}'}"/>
+                                        <Label Text="Profit/Loss"
+                                               Grid.Row="0"
+                                               Grid.Column="3"/>
+                                        <Label Text="{Binding Difference, StringFormat='{0} USD'}"
+                                               Grid.Row="1"
+                                               Grid.Column="3"
+                                               TextColor="Gray"/>
 
                                     </Grid>
                                 </DataTemplate>

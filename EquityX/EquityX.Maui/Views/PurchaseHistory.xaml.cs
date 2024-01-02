@@ -8,11 +8,9 @@ public partial class PurchaseHistory : ContentPage
     {
         InitializeComponent();
     }
-
     protected override void OnAppearing()
     {
         base.OnAppearing();
-        PortfolioPageViewModel.UpdateSummary();
         var assets = new ObservableCollection<Models.Asset>(PortfolioPageViewModel.GetAssets());
         listAssets.ItemsSource = assets;
     }

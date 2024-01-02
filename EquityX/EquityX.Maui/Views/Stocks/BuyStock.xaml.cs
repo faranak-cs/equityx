@@ -22,7 +22,7 @@ public partial class BuyStock : ContentPage
             {
                 stockCtrl.Stock = stock.Name;
                 // STOCKCTRL PRICE DATA TYPE IS STRING
-                stockCtrl.Price = stock.Price.ToString();
+                stockCtrl.Price = stock.MarketPrice.ToString();
                 // STOCKCTRL UNIT DATA TYPE IS STRING
                 stockCtrl.Unit = 1.ToString();
             }

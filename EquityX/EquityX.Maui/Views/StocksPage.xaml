@@ -35,18 +35,31 @@
 
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Grid Padding="10">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                        </Grid.RowDefinitions>
-
+                    <Grid RowDefinitions="*,*"
+                          ColumnDefinitions="2*,*,*"
+                          Padding="10">
+                       
                         <Label Text="{Binding Symbol}"
-                               FontAttributes="Bold"
-                               FontSize="16"/>
-                        <Label Text="{Binding Price}"
+                               FontSize="16"
+                               FontAttributes="Bold"/>
+                        <Label Text="{Binding Name}"
                                Grid.Row="1"
                                TextColor="Gray"/>
+                        <Label Text="Last Price"
+                               Grid.Row="0"
+                               Grid.Column="1"/>
+                        <Label Text="{Binding MarketPrice, StringFormat='${0}'}"
+                               Grid.Row="1"
+                               Grid.Column="1"
+                               TextColor="Gray"/>
+                        <Label Text="Change"
+                               Grid.Row="0"
+                               Grid.Column="2"/>
+                        <Label Text="{Binding MarketChangePercent, StringFormat='{0}%'}"
+                               Grid.Row="1"
+                               Grid.Column="2" 
+                               TextColor="Gray"/>
+                        
                     </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
