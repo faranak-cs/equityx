@@ -1,4 +1,7 @@
-﻿//namespace of Views folder
+﻿// Author: Faran Ahmad Khan
+// Author Email: L00179451@atu.ie
+
+//namespace of Views folder
 using EquityX.Maui.Views;
 using EquityX.Maui.Views.Cryptos;
 using EquityX.Maui.Views.Funds;

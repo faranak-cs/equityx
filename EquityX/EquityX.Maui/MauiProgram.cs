@@ -1,4 +1,7 @@
-﻿using CommunityToolkit.Maui;
+﻿// Author: Faran Ahmad Khan
+// Author Email: L00179451@atu.ie
+
+using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
 using Syncfusion.Maui.Core.Hosting;
 
