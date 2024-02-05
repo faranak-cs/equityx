@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 namespace EquityX.Maui.DataSource;
 public class REST
 {
-    private const string API_KEY = "HFxyRZz4cc73DYba7hkQD5EQUsIidi1gaYpt3AQW";
+    private const string API_KEY = "ENTER YOUR API KEY HERE";
 
     private const string API_URL = "https://yfapi.net/v6/finance/quote?region=US&lang=en&symbols=";
 
