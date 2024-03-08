@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:sf="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
              x:Class="EquityX.Maui.Views.HomePage"
              Title="Home"
              Shell.TitleColor="#ffc600"
@@ -77,24 +76,22 @@
               RowSpacing="10"
               ColumnSpacing="10">
 
-            <sf:SfEffectsView>
-                <Frame Grid.Row="0"
+            <Frame Grid.Row="0"
                        Grid.Column="0"
                        BorderColor="White"
                        BackgroundColor="#f8f9fa"
                        CornerRadius="20"
                        Padding="10">
-                    <VerticalStackLayout>
-                        <Label Text="Portfolio" HorizontalOptions="Center"/>
-                        <Image Source="portfolio.png" HorizontalOptions="Center">
-                            <Image.GestureRecognizers>
-                                <TapGestureRecognizer
+                <VerticalStackLayout>
+                    <Label Text="Portfolio" HorizontalOptions="Center"/>
+                    <Image Source="portfolio.png" HorizontalOptions="Center">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer
                                 Tapped="imgPortfolio_Tapped" NumberOfTapsRequired="1"/>
-                            </Image.GestureRecognizers>
-                        </Image>
-                    </VerticalStackLayout>
-                </Frame>
-            </sf:SfEffectsView>
+                        </Image.GestureRecognizers>
+                    </Image>
+                </VerticalStackLayout>
+            </Frame>
 
             <Frame Grid.Row="0"
                    Grid.Column="1"

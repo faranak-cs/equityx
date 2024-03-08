@@ -3,7 +3,6 @@
 
 using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
-using Syncfusion.Maui.Core.Hosting;
 
 namespace EquityX.Maui
 {
@@ -16,8 +15,6 @@ namespace EquityX.Maui
                 .UseMauiApp<App>()
                 // .NET MAUI COMMUNITY TOOLKIT LIBRARY USED FOR VALIDATION IN THE ENTRY FIELDS
                 .UseMauiCommunityToolkit()
-                // SYNCFUSION LIBRARY USED FOR RIPPLE EFFECT IN THE MAIN PAGE
-                .ConfigureSyncfusionCore()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
