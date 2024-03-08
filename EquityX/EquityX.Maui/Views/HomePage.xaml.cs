@@ -20,7 +20,7 @@ public partial class HomePage : ContentPage
         var user = HomePageViewModel.GetUserById(User.Id);
         CurrentUser.Text = "Hi, " + user.Name;
         AvailableFunds.Text = "$" + user.Funds.ToString();
-        TotalSum.Text = PortfolioPageViewModel.GetTotalSum().ToString();
+        TotalSum.Text = "$" + PortfolioPageViewModel.GetTotalSum().ToString();
     }
 
     // ADD BUTTON
