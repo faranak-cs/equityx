@@ -19,8 +19,8 @@ Stocks Page
 ![Stocks Page](https://github.com/faranak-cs/CrossPlatformDev/assets/73027299/abee09fc-9c66-485b-b430-23ef847f6818)
 Crypto Page
 ![Crypto Page](https://github.com/faranak-cs/CrossPlatformDev/assets/73027299/9e8a30ff-27d8-4ea3-bebb-86af62e9a93a)
-Summary Page
-![Summary Page](https://github.com/faranak-cs/CrossPlatformDev/assets/73027299/bc39b914-a933-4694-8373-0972b251874d)
+Portfolio Page
+![Portfolio Page](https://github.com/faranak-cs/CrossPlatformDev/assets/73027299/bc39b914-a933-4694-8373-0972b251874d)
 
 
 
