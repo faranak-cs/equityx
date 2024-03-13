@@ -1,5 +1,5 @@
 # EquityX Application Using .NET MAUI
-A cross platform application that allows users to simulate the trading of stocks and crypto currencies built using Microsoft’s .NET MAUI framework with Yahoo Finance REST API integration and persistent storage of trading data complying with Google’s Material Design 2 guidelines. Postman is used for API testing.
+A cross platform application allowing users to simulate the trading of stocks and cryptocurrencies built using .NET MAUI framework with Yahoo Finance API integration and persistent storage of trading data following MVVM design architecture and Material Design 2 guidelines.
 # Architecture Diagram
 ![EquityX diagram drawio](https://github.com/faranak-cs/equityx/assets/73027299/78ba2965-da4c-46ec-bd43-b9900b2ef936)
 # How to Run
